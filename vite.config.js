@@ -51,25 +51,29 @@ export default defineConfig({
         strictPort: true,
 
         allowedHosts: [
-            'slush-brush-headgear.ngrok-free.dev',
+            'https://webprint.ma',
+            'localhost:5173',
+            'localhost:8000',
         ],
 
         cors: {
             origin: [
                 "https://webprint.ma",
+                "localhost:5173",
+                "localhost:8000",
             ],
             credentials: true,
         },
 
-        hmr: {
-            host: 'https://webprint.ma',
-            protocol: 'wss',
-            clientPort: 443,
-        },
         // hmr: {
-        //     host: 'localhost',
-        //     protocol: 'http',
-        //     clientPort: 5173,
+        //     host: 'https://webprint.ma',
+        //     protocol: 'wss',
+        //     clientPort: 443,
         // },
+        hmr: {
+            host: 'localhost',
+            protocol: 'http',
+            clientPort: 5173,
+        },
     },
 });
