@@ -52,7 +52,7 @@ class ContactController extends Controller
 
         $contactMessage = ContactMessage::create($validated);
 
-        Mail::to(env('CONTACT_MAIL_TO', 'enquiries@alidad.com'))->send(new ContactSubmitted($contactMessage));
+        Mail::to(env('CONTACT_MAIL_TO', 'contact@webprint.ma'))->send(new ContactSubmitted($contactMessage));
 
         return back()->with('success', 'Votre message a ete envoye avec succes !');
     }

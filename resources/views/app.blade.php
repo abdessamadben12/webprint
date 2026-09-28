@@ -7,7 +7,7 @@
         <meta name="theme-color" content="#0d1a2d">
         <meta name="color-scheme" content="light">
 
-        <title inertia>{{ config('app.name', 'Alidade') }}</title>
+        <title inertia>{{ config('app.name', 'webprint.ma') }}</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

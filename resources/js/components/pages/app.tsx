@@ -7,10 +7,10 @@ import Footer from '@/components/pages/Footer';
 import HeroSlider from '@/components/pages/Hero';
 import Navbar from '@/components/pages/navbar';
 import MetiersSection from '@/components/pages/metiers';
-import PartnersSection from '@/components/pages/partners';
 import { router } from '@inertiajs/react';
 import { useEffect } from 'react';
 import { EngagementSection } from './featchuresection';
+import GallerySpread from '@/components/pages/gallery-spread';
 
 /** Old tab-based URLs (/?tab=...) now redirect to their dedicated routes. */
 const legacyTabRoutes: Record<string, string> = {
@@ -46,7 +46,8 @@ export default function App() {
                 <MetiersSection />
 
                 {/* 4. Partenaires / clients */}
-                <PartnersSection />
+                {/* <PartnersSection /> */}
+                <GallerySpread/>
             </main>
 
             <Footer />

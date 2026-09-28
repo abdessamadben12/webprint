@@ -171,7 +171,7 @@ export function SiteFooter() {
                 </div>
 
                 <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-[11px] tracking-wider text-white/35 md:flex-row">
-                    <div>&copy; {new Date().getFullYear()} Alidad Ltd. All Rights Reserved.</div>
+                    <div>&copy; {new Date().getFullYear()} webprint.ma. All Rights Reserved.</div>
                     <div className="flex gap-6">
                         <a href="#privacy" className="transition-colors hover:text-[#c5a880]">
                             Privacy Policy

@@ -42,7 +42,7 @@ export default function QuoteRequest({
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [projectType, setProjectType] = useState('Menuiserie Bois & Cuisine Moderne');
+    const [projectType, setProjectType] = useState('Impression offset');
     const [description, setDescription] = useState('');
     const [budget, setBudget] = useState('');
     const [fileName, setFileName] = useState<string | null>(null);
@@ -56,7 +56,7 @@ export default function QuoteRequest({
     useEffect(() => {
         if (preFilledSummary) {
             setDescription(preFilledSummary);
-            setProjectType('Menuiserie Bois & Cuisine Moderne');
+            setProjectType('Impression offset');
             if (preFilledCost) {
                 setBudget(`${preFilledCost} MAD`);
             }
@@ -142,21 +142,23 @@ export default function QuoteRequest({
                     className="absolute inset-0 bg-[length:cover] bg-center opacity-10 mix-blend-overlay"
                     style={{ backgroundImage: `url(${quoteBannerImage})` }}
                 />
-                <div className="relative z-10 mx-auto max-w-7xl">
+                <div className="relative z-10 mx-auto site-container">
                     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
                         {/* Left side text columns (Screenshot 5 Right Left column) */}
                         <Reveal className="space-y-6 lg:col-span-6" amount={0.15}>
                             <div className="flex items-center gap-2">
                                 <span className="bg-alidade-gold h-[1.5px] w-8" />
-                                <span className="text-alidade-gold text-sm sm:text-xl font-bold tracking-[0.25em] uppercase">Étude Personnalisée</span>
+                                <span className="text-alidade-gold text-sm font-bold tracking-[0.25em] uppercase sm:text-xl">
+                                    Étude Personnalisée
+                                </span>
                             </div>
-                            <h2 className=" text-3xl font-bold uppercase sm:text-4xl lg:text-5xl">
+                            <h2 className="site-title font-bold">
                                 Demandez Votre <br />
-                                <span className="text-alidade-gold font-serif ">Devis Gratuit</span>
+                                <span className="text-alidade-gold font-serif">Devis Gratuit</span>
                             </h2>
-                            <p className="max-w-lg text-sm leading-relaxed font-light text-gray-300">
-                                Décrivez votre projet d'agencement, de menuiserie fine ou de rénovation globale. Nos ingénieurs évaluent vos volumes
-                                et vous rédigent un estimatif détaillé sous 48 heures.
+                            <p className="site-text max-w-lg text-gray-300">
+                                Décrivez votre besoin d'impression, de signalétique, de PLV, de stand ou d'objet publicitaire. Notre équipe vous
+                                prépare un estimatif clair sous 48 heures.
                             </p>
 
                             {/* Grid indicators (Screenshot 5 Right) */}
@@ -200,7 +202,7 @@ export default function QuoteRequest({
                                 id="quote-request-card"
                             >
                                 <div className="mb-6 flex items-center justify-between">
-                                    <h3 className="text-alidade-navy text-lg font-bold tracking-wider uppercase">Demande de Devis</h3>
+                                    <h3 className="site-subheading text-alidade-navy font-bold">Demande de Devis</h3>
                                 </div>
 
                                 {isSubmitted && submittedQuote && (
@@ -211,7 +213,7 @@ export default function QuoteRequest({
                                                 Devis enregistré sous le numéro {submittedQuote.id}
                                             </span>
                                         </div>
-                                        <p className="text-[11px] leading-relaxed font-light text-emerald-700">
+                                        <p className="site-text-small font-light text-emerald-700">
                                             Votre dossier a bien été soumis à notre bureau d'études technique de Casablanca. Vous pouvez suivre
                                             l'avancement de cette demande dans votre tableau de bord.
                                         </p>
@@ -295,13 +297,13 @@ export default function QuoteRequest({
                                                 className="focus:ring-alidade-gold focus:border-alidade-gold w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 py-3.5 pr-10 pl-4 text-xs font-medium outline-none focus:ring-1"
                                                 id="quote-type-input"
                                             >
-                                                <option value="Menuiserie Bois & Cuisine Moderne">Menuiserie Bois & Cuisine Moderne</option>
-                                                <option value="Travaux De Construction Et Rénovation">Travaux De Construction Et Rénovation</option>
-                                                <option value="Travaux De Peinture Professionnelle">Travaux De Peinture Professionnelle</option>
-                                                <option value="Revêtement De Sol / Parquet">Revêtement De Sol / Parquet</option>
-                                                <option value="Faux Plafond & Eclairage LED">Faux Plafond & Eclairage LED</option>
-                                                <option value="Aménagement Commerciale & Agencement">Aménagement Commerciale & Agencement</option>
-                                                <option value="Projet Global Clé-En-Main">Projet Global Clé-En-Main</option>
+                                                <option value="Impression offset">Impression offset</option>
+                                                <option value="Impression numérique">Impression numérique</option>
+                                                <option value="Grand format et signalétique">Grand format et signalétique</option>
+                                                <option value="PLV et industrie publicitaire">PLV et industrie publicitaire</option>
+                                                <option value="Stand d'exposition">Stand d'exposition</option>
+                                                <option value="Design graphique">Design graphique</option>
+                                                <option value="Publicité par l'objet">Publicité par l'objet</option>
                                             </select>
                                             <ChevronDown
                                                 size={15}
@@ -324,7 +326,7 @@ export default function QuoteRequest({
                                         </div>
                                         <div className="relative">
                                             <textarea
-                                                placeholder="Nombre de pièces, dimensions estimées, essence de bois souhaitée (Chêne, Noyer, MDF, Mélaminé), ou spécifications de peinture..."
+                                                placeholder="Ex: 500 flyers A5 recto verso, carte de visite, bâche 3x2m, enseigne, stand, logo ou objet publicitaire..."
                                                 required
                                                 rows={4}
                                                 value={description}
@@ -391,11 +393,7 @@ export default function QuoteRequest({
 
                                     {/* Submit Button */}
                                     <div className="pt-2">
-                                        <button
-                                            type="submit"
-                                            className="bg-alidade-gold hover:bg-alidade-gold-light text-alidade-navy flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-6 py-4 text-xs font-bold tracking-widest uppercase shadow-lg transition-colors"
-                                            id="quote-submit-btn"
-                                        >
+                                        <button type="submit" className="brand-button w-full" id="quote-submit-btn">
                                             <span>ENVOYER LA DEMANDE DE DEVIS</span>
                                         </button>
                                     </div>
@@ -406,13 +404,11 @@ export default function QuoteRequest({
                 </div>
             </section>
 
-            {/* Why ask a quote from Alidade section (Screenshot 5 Bottom Right) */}
+            {/* Why ask a quote section */}
             <section className="bg-gray-50 py-20">
-                <div className="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto site-container space-y-16 px-4 sm:px-6 lg:px-8">
                     <Reveal className="space-y-3 text-center">
-                        <h3 className="text-alidade-navy  text-2xl font-bold sm:text-3xl">
-                            Pourquoi demander un devis chez Alidade ?
-                        </h3>
+                        <h3 className="site-heading text-alidade-navy font-bold">Pourquoi demander un devis chez webprint.ma ?</h3>
                         <div className="bg-alidade-gold mx-auto h-0.5 w-16 rounded-full" />
                     </Reveal>
 
@@ -422,10 +418,9 @@ export default function QuoteRequest({
                             <div className="bg-alidade-navy text-alidade-gold flex h-10 w-10 items-center justify-center rounded-full">
                                 <SearchCode size={20} />
                             </div>
-                            <h4 className="text-alidade-navy text-xs font-bold tracking-wider uppercase">Analyse détaillée</h4>
-                            <p className="text-xs leading-relaxed font-light text-gray-500">
-                                Nous étudions minutieusement chaque paramètre, plan d'exécution ou photo transmise pour émettre un estimatif d'une
-                                justesse rigoureuse.
+                            <h4 className="site-label text-alidade-navy font-bold">Analyse détaillée</h4>
+                            <p className="site-text text-gray-500">
+                                Nous étudions vos formats, quantités, supports, finitions et contraintes de délai pour établir un estimatif utile.
                             </p>
                         </StaggerItem>
 
@@ -434,10 +429,9 @@ export default function QuoteRequest({
                             <div className="bg-alidade-navy text-alidade-gold flex h-10 w-10 items-center justify-center rounded-full">
                                 <Sparkles size={20} />
                             </div>
-                            <h4 className="text-alidade-navy text-xs font-bold tracking-wider uppercase">Solutions adaptées</h4>
-                            <p className="text-xs leading-relaxed font-light text-gray-500">
-                                Chaque pièce de bois, type de laque ou profilé de cloison est dimensionné selon vos besoins ergonomiques et vos
-                                préférences esthétiques.
+                            <h4 className="site-label text-alidade-navy font-bold">Solutions adaptées</h4>
+                            <p className="site-text text-gray-500">
+                                Chaque support est conseillé selon votre objectif : visibilité, distribution, point de vente, salon ou cadeau client.
                             </p>
                         </StaggerItem>
 
@@ -446,10 +440,9 @@ export default function QuoteRequest({
                             <div className="bg-alidade-navy text-alidade-gold flex h-10 w-10 items-center justify-center rounded-full">
                                 <Shield size={20} />
                             </div>
-                            <h4 className="text-alidade-navy text-xs font-bold tracking-wider uppercase">Rapport Qualité/Prix</h4>
-                            <p className="text-xs leading-relaxed font-light text-gray-500">
-                                Aucun intermédiaire. Nous produisons directement dans notre atelier à Casablanca, vous offrant des tarifs d'usine
-                                directs sans compromettre la noblesse.
+                            <h4 className="site-label text-alidade-navy font-bold">Rapport Qualité/Prix</h4>
+                            <p className="site-text text-gray-500">
+                                Nous cherchons le bon équilibre entre rendu, durabilité, délai et budget pour chaque campagne.
                             </p>
                         </StaggerItem>
 
@@ -458,10 +451,9 @@ export default function QuoteRequest({
                             <div className="bg-alidade-navy text-alidade-gold flex h-10 w-10 items-center justify-center rounded-full">
                                 <Star size={20} />
                             </div>
-                            <h4 className="text-alidade-navy text-xs font-bold tracking-wider uppercase">Accompagnement</h4>
-                            <p className="text-xs leading-relaxed font-light text-gray-500">
-                                Un conducteur de travaux dédié suit l'avancement de votre chantier, de la pose du premier tasseau jusqu'aux finitions
-                                de vernis finales.
+                            <h4 className="site-label text-alidade-navy font-bold">Accompagnement</h4>
+                            <p className="site-text text-gray-500">
+                                Un interlocuteur suit votre dossier depuis le brief jusqu'à la validation, la production et la livraison.
                             </p>
                         </StaggerItem>
                     </Stagger>
@@ -472,9 +464,8 @@ export default function QuoteRequest({
                             <span className="text-alidade-gold block text-xs font-bold tracking-widest uppercase">
                                 Besoin d'un conseil technique ?
                             </span>
-                            <p className="max-w-xl text-sm font-light text-gray-300">
-                                Nos experts sont à votre entière disposition pour vous guider, étudier vos esquisses et clarifier vos questions
-                                réglementaires ou thermiques.
+                            <p className="site-text max-w-xl text-gray-300">
+                                Notre équipe vous guide sur le papier, le format, le marquage, la finition et la préparation de vos fichiers.
                             </p>
                         </div>
                         <button

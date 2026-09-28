@@ -22,10 +22,18 @@ export default defineConfig({
     build: {
         rollupOptions: {
             output: {
-                manualChunks: {
-                    react: ['react', 'react-dom'],
-                    inertia: ['@inertiajs/react'],
-                    ui: ['lucide-react', 'framer-motion'],
+                manualChunks(id) {
+                    if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+                        return 'react';
+                    }
+
+                    if (id.includes('node_modules/@inertiajs/react')) {
+                        return 'inertia';
+                    }
+
+                    if (id.includes('node_modules/lucide-react') || id.includes('node_modules/framer-motion')) {
+                        return 'ui';
+                    }
                 },
             },
         },
@@ -43,21 +51,18 @@ export default defineConfig({
         strictPort: true,
 
         allowedHosts: [
-            'overpay-sagging-robust.ngrok-free.dev',
+            'slush-brush-headgear.ngrok-free.dev',
         ],
 
         cors: {
             origin: [
-              'https://overpay-sagging-robust.ngrok-free.devv/',
-                'http://localhost:8000',
-                'http://127.0.0.1:8000',
-                "http://localhost:5173"
+                "https://webprint.ma",
             ],
             credentials: true,
         },
 
         hmr: {
-            host: 'https://overpay-sagging-robust.ngrok-free.devv/',
+            host: 'https://webprint.ma',
             protocol: 'wss',
             clientPort: 443,
         },

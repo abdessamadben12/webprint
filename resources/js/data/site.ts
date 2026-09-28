@@ -1,22 +1,20 @@
-// Coordonnées de l'entreprise — source unique de vérité.
-// Modifier ici met à jour la navbar, le footer, la page contact et le bouton WhatsApp.
+// Coordonnees de l'entreprise - source unique de verite.
+// Modifier ici met a jour la navbar, le footer, la page contact et le bouton WhatsApp.
 export const site = {
-    name: 'Alidade',
+    name: 'webprint.ma',
     phone: '05 22 48 44 25',
     phoneHref: 'tel:0522484425',
 
-    // Numéro WhatsApp au format international, sans « + » ni espaces.
-    // TODO: remplacer par le numéro WhatsApp mobile réel (ex: '2126XXXXXXXX').
+    // Numero WhatsApp au format international, sans + ni espaces.
     whatsapp: '212668746386',
-    whatsappMessage: 'Bonjour Alidade, je souhaite obtenir des informations sur vos services.',
+    whatsappMessage: 'Bonjour webprint.ma, je souhaite obtenir des informations sur vos services d impression.',
 
-    email: 'contact@alidade.ma',
-    address: '3, Avenue 2 Mars Résidence Marwa 5 ème étage Casablanca, Maroc',
+    email: 'contact@webprint.ma',
+    address: "N 3 Av 2 Mars, 5eme etage, coin Zerktouni, Rond point d'Europe, Casablanca - Maroc",
 
-    // TODO: remplacer par l'embed de l'adresse exacte (Google Maps → Partager → Intégrer une carte).
-    mapEmbedUrl: 'https://maps.google.com/maps?q=Casablanca%2C%20Maroc&z=12&output=embed',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=Rond%20point%20d%27Europe%20Casablanca%20Maroc&z=15&output=embed',
 
-    // Renseigner une URL pour faire apparaître l'icône correspondante (vide = icône masquée).
+    // Renseigner une URL pour faire apparaitre l'icone correspondante (vide = icone masquee).
     socials: {
         facebook: '',
         instagram: '',

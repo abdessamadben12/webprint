@@ -10,24 +10,24 @@ export default function Welcome() {
     return (
         <>
             <SeoHead
-                title="Alidade | Rénovation, agencement et menuiserie au Maroc"
-                description="Alidade réalise vos projets de rénovation, agencement intérieur, menuiserie, aluminium et finition à Casablanca et partout au Maroc."
+                title="webprint.ma | Imprimerie et impression publicitaire en ligne au Maroc"
+                description="webprint.ma réalise vos impressions offset et numériques, supports grand format, signalétique, PLV, stands et objets publicitaires au Maroc."
                 keywords={[
-                    'rénovation Casablanca',
-                    'agencement intérieur Maroc',
-                    'menuiserie bois',
-                    'travaux aluminium',
-                    'aménagement commercial',
-                    'Alidade',
+                    'imprimerie Casablanca',
+                    'impression offset Maroc',
+                    'impression numérique Casablanca',
+                    'grand format',
+                    'PLV Casablanca',
+                    'webprint.ma',
                 ]}
                 structuredData={{
                     '@context': 'https://schema.org',
-                    '@type': 'HomeAndConstructionBusiness',
-                    name: 'Alidade',
+                    '@type': 'LocalBusiness',
+                    name: 'webprint.ma',
                     url: siteUrl,
                     image: `${siteUrl}/images/bannieres/menuiserie-Bois2-final.webp`,
                     areaServed: ['Casablanca', 'Maroc'],
-                    serviceType: ['Rénovation', 'Agencement intérieur', 'Menuiserie', 'Travaux aluminium'],
+                    serviceType: ['Impression offset', 'Impression numérique', 'Signalétique', 'PLV', 'Stands'],
                 }}
             />
             <div>

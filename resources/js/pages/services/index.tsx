@@ -8,9 +8,9 @@ export default function ServicesPage() {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
-                title="Savoir-faire Alidade | Rénovation, menuiserie, aluminium et finition"
-                description="Six corps de métier, un seul interlocuteur : rénovation, agencement, menuiserie bois, aluminium, peinture et revêtements à Casablanca et au Maroc."
-                keywords={['services rénovation Casablanca', 'menuiserie bois Maroc', 'travaux aluminium', 'agencement intérieur', 'Alidade services']}
+                title="Services webprint.ma | Imprimerie, signaletique, PLV et stands"
+                description="Impression offset et numerique, grand format, signaletique, PLV, stands, design graphique et objets publicitaires a Casablanca."
+                keywords={['imprimerie Casablanca', 'impression numerique Maroc', 'PLV Casablanca', 'stand exposition Maroc', 'webprint.ma services']}
             />
             <Navbar />
             <main className="flex-grow">

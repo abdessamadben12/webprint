@@ -17,9 +17,9 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#FDFCFA]">
             <SeoHead
-                title={service ? `${service.title} | Alidade Casablanca` : 'Service introuvable | Alidade'}
+                title={service ? `${service.title} | webprint.ma Maroc` : 'Service introuvable | webprint.ma'}
                 description={service?.description ?? "Ce service n'existe pas ou a été déplacé."}
-                keywords={service ? [service.title, 'Alidade Casablanca', 'travaux Maroc'] : ['Alidade']}
+                keywords={service ? [service.title, 'webprint.ma Maroc', 'impression Maroc'] : ['webprint.ma']}
                 image={service?.imageUrl}
             />
             <Navbar />
@@ -28,8 +28,8 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                 {!service ? (
                     <section className="mx-auto max-w-3xl px-4 py-28 text-center sm:px-6">
                         <span className="text-alidade-gold-dark text-xs font-bold tracking-[0.3em] uppercase">Page introuvable</span>
-                        <h1 className="serif-display mt-4 text-4xl font-bold text-alidade-navy">Ce service n'existe pas.</h1>
-                        <p className="mt-4 text-sm font-light text-gray-500">
+                        <h1 className="site-title serif-display text-alidade-navy mt-4 font-bold">Ce service n'existe pas.</h1>
+                        <p className="site-text mt-4 text-gray-500">
                             Le lien est peut-être ancien ou mal orthographié. Retrouvez l'ensemble de nos prestations sur la page savoir-faire.
                         </p>
                         <Link
@@ -43,17 +43,15 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                 ) : (
                     <>
                         {/* Hero */}
-                        <div className="relative overflow-hidden bg-alidade-navy py-16 text-white sm:py-24">
-                            <div className="absolute inset-0 bg-gradient-to-b from-alidade-navy/50 via-alidade-navy/70 to-alidade-navy" />
+                        <div className="bg-alidade-navy relative overflow-hidden py-16 text-white sm:py-24">
+                            <div className="from-alidade-navy/50 via-alidade-navy/70 to-alidade-navy absolute inset-0 bg-gradient-to-b" />
                             <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
                                 <Stagger className="space-y-6" amount={0.3}>
                                     <StaggerItem>
-                                        <h1 className="serif-display text-4xl leading-[1.1] font-bold sm:text-5xl lg:text-6xl">{service.title}</h1>
+                                        <h1 className="site-title serif-display font-bold">{service.title}</h1>
                                     </StaggerItem>
                                     <StaggerItem>
-                                        <p className="max-w-xl text-base leading-relaxed font-light text-white/80 lg:text-lg">
-                                            {service.description}
-                                        </p>
+                                        <p className="site-text-lead max-w-xl text-white/80">{service.description}</p>
                                     </StaggerItem>
                                     <StaggerItem className="pt-2">
                                         <Link
@@ -80,7 +78,7 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                                         loading="eager"
                                         decoding="async"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-alidade-navy/60 via-transparent to-transparent" />
+                                    <div className="from-alidade-navy/60 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
                                 </motion.div>
                             </div>
                         </div>
@@ -88,25 +86,24 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                         {/* Détails de la prestation */}
                         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
                             <Reveal className="space-y-8">
-                                <h2 className="serif-display text-3xl font-bold text-alidade-navy md:text-4xl xl:text-5xl">Ce que nous réalisons</h2>
+                                <h2 className="site-heading serif-display text-alidade-navy font-bold">Ce que nous réalisons</h2>
                                 <Stagger stagger={0.08} className="space-y-5" amount={0.1}>
                                     {service.details.map((detail) => (
                                         <StaggerItem key={detail} y={16} className="flex items-start gap-3">
                                             <CheckCircle2 size={20} className="text-alidade-gold-dark mt-0.5 shrink-0" />
-                                            <span className="text-alidade-text text-base leading-relaxed lg:text-lg">{detail}</span>
+                                            <span className="site-text text-alidade-text">{detail}</span>
                                         </StaggerItem>
                                     ))}
                                 </Stagger>
                             </Reveal>
 
                             <Reveal className="h-fit rounded-2xl bg-[#F9F7F3] p-8 sm:p-10" delay={0.15}>
-                                <span className="text-alidade-gold-dark sm:text-xl text-sm  font-bold tracking-[0.3em] uppercase">Matériaux & garanties</span>
+                                <span className="text-alidade-gold-dark text-sm font-bold tracking-[0.3em] uppercase sm:text-xl">
+                                    Matériaux & garanties
+                                </span>
                                 <ul className="mt-6 space-y-4">
                                     {service.materials.map((material) => (
-                                        <li
-                                            key={material}
-                                            className="border-alidade-navy/10 text-alidade-navy border-b pb-4 text-base leading-relaxed lg:text-lg"
-                                        >
+                                        <li key={material} className="site-text border-alidade-navy/10 text-alidade-navy border-b pb-4">
                                             {material}
                                         </li>
                                     ))}
@@ -118,8 +115,10 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                         <div className="bg-[#F9F7F3]">
                             <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
                                 <Reveal className="mb-12 space-y-3 text-center">
-                                    <span className="text-alidade-gold-dark text-sm sm:text-xl font-bold tracking-[0.3em] uppercase">Réalisations</span>
-                                    <h2 className="serif-display text-3xl font-bold text-alidade-navy sm:text-4xl xl:text-5xl">Nos chantiers en images</h2>
+                                    <span className="text-alidade-gold-dark text-sm font-bold tracking-[0.3em] uppercase sm:text-xl">
+                                        Réalisations
+                                    </span>
+                                    <h2 className="site-heading serif-display text-alidade-navy font-bold">Nos realisations en images</h2>
                                 </Reveal>
 
                                 <Stagger stagger={0.12} amount={0.05} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -133,12 +132,10 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                                                 loading="lazy"
                                                 decoding="async"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-alidade-navy/70 via-transparent to-transparent" />
+                                            <div className="from-alidade-navy/70 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
                                             <div className="absolute right-0 bottom-0 left-0 p-5 text-left">
-                                                <span className="text-xs font-bold tracking-widest text-alidade-gold uppercase">
-                                                    {service.title}
-                                                </span>
-                                                <h3 className="mt-0.5 text-base font-bold text-white lg:text-lg">{photo.caption}</h3>
+                                                <span className="text-alidade-gold text-xs font-bold tracking-widest uppercase">{service.title}</span>
+                                                <h3 className="site-subheading mt-0.5 font-bold text-white">{photo.caption}</h3>
                                             </div>
                                         </StaggerItem>
                                     ))}
@@ -159,7 +156,7 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                         {/* Autres services */}
                         <div className="border-t border-gray-100 bg-white">
                             <Reveal className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-                                <h2 className="serif-display text-3xl font-bold text-alidade-navy xl:text-4xl">Nos autres métiers</h2>
+                                <h2 className="site-heading serif-display text-alidade-navy font-bold">Nos autres services</h2>
                                 <div className="mt-8 flex flex-wrap gap-3">
                                     {services
                                         .filter((s) => s.slug !== service.slug)

@@ -10,7 +10,7 @@ declare global {
     const route: typeof routeFn;
 }
 
-const appName = import.meta.env.VITE_APP_NAME || 'Alidade';
+const appName = import.meta.env.VITE_APP_NAME || 'webprint.ma';
 
 createInertiaApp({
     title: (title) => (title.includes(appName) ? title : `${title} | ${appName}`),

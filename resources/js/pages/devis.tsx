@@ -17,7 +17,7 @@ export default function DevisPage() {
         const service = params.get('service');
         if (service) {
             setPreFilledSummary(
-                `Bonjour,\n\nJe sollicite un devis gratuit pour la prestation de : ${service}.\n\nMerci de me recontacter pour planifier une visite de prise de cotes.`,
+                `Bonjour,\n\nJe sollicite un devis gratuit pour la prestation de : ${service}.\n\nMerci de me recontacter afin de preciser les formats, quantites, supports et delais.`,
             );
             window.history.replaceState({}, '', '/devis');
             return;
@@ -37,9 +37,9 @@ export default function DevisPage() {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
-                title="Demande de devis Alidade | Travaux, menuiserie et agencement"
-                description="Décrivez votre projet de rénovation, menuiserie ou agencement et recevez un devis gratuit. Visite de prise de cotes à Casablanca et au Maroc."
-                keywords={['devis rénovation Casablanca', 'devis menuiserie Maroc', 'devis gratuit travaux', 'Alidade devis']}
+                title="Demande de devis webprint.ma | Impression et communication visuelle"
+                description="Décrivez votre projet d'impression, signalétique, PLV, stand ou objet publicitaire et recevez un devis gratuit à Casablanca."
+                keywords={['devis impression Casablanca', 'impression numérique Maroc', 'devis grand format', 'webprint.ma devis']}
             />
             <Navbar />
             <main className="flex-grow">

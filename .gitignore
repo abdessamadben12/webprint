@@ -27,3 +27,4 @@ npm-debug.log
 yarn-error.log
 /alidad.zip
 /public/node_modules
+ngrok.yml

@@ -21,7 +21,7 @@ export default function Gallery() {
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-b from-alidade-navy/50 via-alidade-navy/70 to-alidade-navy" />
                 </div>
-                <Stagger className="relative mx-auto max-w-6xl space-y-6 px-4 text-center sm:px-6 lg:px-8" amount={0.3}>
+                <Stagger className="relative mx-auto site-container space-y-6 px-4 text-center sm:px-6 lg:px-8" amount={0.3}>
                     <StaggerItem className="inline-block">
                         <span className="text-[11px] font-bold tracking-[0.3em] text-alidade-gold uppercase">Galerie</span>
                     </StaggerItem>
@@ -29,7 +29,7 @@ export default function Gallery() {
                         <h1 className="serif-display text-4xl leading-[1.1] font-bold text-white sm:text-6xl lg:text-7xl">Nos Réalisations</h1>
                     </StaggerItem>
                     <StaggerItem>
-                        <p className="mx-auto max-w-2xl text-base leading-relaxed font-light text-white/75 sm:text-lg">
+                        <p className="site-text-lead mx-auto max-w-2xl font-light text-white/75">
                             Découvrez une sélection de nos projets réalisés. Des cuisines modernes aux aménagements commerciaux, explorez la diversité
                             de notre savoir-faire.
                         </p>
@@ -39,7 +39,7 @@ export default function Gallery() {
 
             {/* Filter Section */}
             <section className="border-b border-gray-100 bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+                <div className="mx-auto site-container px-4 py-12 sm:px-6 lg:px-8">
                     <Reveal className="flex flex-wrap justify-center gap-3" y={16}>
                         {categories.map((cat) => (
                             <motion.button
@@ -61,7 +61,7 @@ export default function Gallery() {
             </section>
 
             {/* Gallery Grid */}
-            <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+            <section className="mx-auto site-container px-4 py-20 sm:px-6 lg:px-8">
                 <motion.div layout className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <AnimatePresence mode="popLayout">
                     {filteredItems.map((item) => (
@@ -92,7 +92,7 @@ export default function Gallery() {
                                     <span className="block text-[10px] font-bold tracking-[0.2em] text-alidade-gold uppercase">{item.category}</span>
                                     <h3 className="text-lg font-bold text-white">{item.title}</h3>
                                     {item.location && (
-                                        <p className="text-xs text-white/75">
+                                        <p className="site-text-small text-white/75">
                                             {item.location} • {item.year}
                                         </p>
                                     )}
@@ -105,7 +105,7 @@ export default function Gallery() {
 
                 {filteredItems.length === 0 && (
                     <div className="py-12 text-center">
-                        <p className="text-alidade-muted">Aucun projet trouvé dans cette catégorie.</p>
+                        <p className="site-text text-alidade-muted">Aucun projet trouvé dans cette catégorie.</p>
                     </div>
                 )}
             </section>
@@ -155,13 +155,13 @@ export default function Gallery() {
                                 <span className="text-[11px] font-bold tracking-[0.3em] text-alidade-gold uppercase">{selectedImage.category}</span>
                                 <h2 className="serif-display text-4xl font-bold text-alidade-navy">{selectedImage.title}</h2>
                                 {selectedImage.location && (
-                                    <p className="text-sm text-alidade-muted">
+                                    <p className="site-text-small text-alidade-muted">
                                         {selectedImage.location} • {selectedImage.year}
                                     </p>
                                 )}
                             </div>
 
-                            <p className="text-base leading-relaxed text-alidade-muted">{selectedImage.description}</p>
+                            <p className="site-text text-alidade-muted">{selectedImage.description}</p>
 
                             <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                                 <div className="flex gap-2">
@@ -205,7 +205,7 @@ export default function Gallery() {
 
             {/* CTA Section */}
             <section className="bg-alidade-navy text-white">
-                <Stagger className="mx-auto max-w-6xl space-y-8 px-4 py-20 text-center sm:px-6 lg:px-8" amount={0.3}>
+                <Stagger className="mx-auto site-container space-y-8 px-4 py-20 text-center sm:px-6 lg:px-8" amount={0.3}>
                     <StaggerItem className="space-y-4">
                         <span className="text-[11px] font-bold tracking-[0.3em] text-alidade-gold uppercase">Projet similaire?</span>
                         <h2 className="serif-display text-4xl font-bold sm:text-5xl">Parlons de votre projet</h2>

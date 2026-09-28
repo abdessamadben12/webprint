@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contacter Alidade sur WhatsApp"
+            aria-label="Contacter webprint.ma sur WhatsApp"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.12 }}
@@ -22,7 +22,6 @@ export default function WhatsAppButton() {
             transition={{ type: 'spring', stiffness: 260, damping: 18, delay: 0.6 }}
             className="fixed right-5 bottom-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl"
         >
-            <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25D366]/40" />
             <WhatsAppIcon />
         </motion.a>
     );

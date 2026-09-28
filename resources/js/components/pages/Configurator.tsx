@@ -107,7 +107,7 @@ export default function Configurator({ onSendToQuote }: ConfiguratorProps) {
                     <h2 className="text-alidade-navy font-serif text-3xl font-bold tracking-tight uppercase sm:text-4xl lg:text-5xl">
                         Configurateur de Menuiserie 3D
                     </h2>
-                    <p className="mx-auto max-w-xl text-sm font-light text-gray-400">
+                    <p className="site-text mx-auto max-w-xl font-light text-gray-400">
                         Sélectionnez vos bois nobles, vos finitions d'art, ajustez vos dimensions au millimètre et obtenez une estimation budgétaire
                         en temps réel.
                     </p>

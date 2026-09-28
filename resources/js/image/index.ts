@@ -1,11 +1,11 @@
 export const aboutBanner = '/images/bannieres/CUISINE-ET-DRESSING.webp';
-export const aboutCraftHero = '/images/qui-sommes-nous/atelier-finition.webp';
+export const aboutCraftHero = '/images/qui-sommes-nous/atelier-finition.png';
 export const aboutCraftGrid = '/images/qui-sommes-nous/atelier-finition.webp';
 export const aboutProjectOne = '/images/agencement/agencement-et-réaménagement-image-2.webp';
 export const aboutProjectTwo = '/images/revetement-sol/revetement-sol-1.webp';
 export const aboutProjectThree = '/images/qui-sommes-nous/amenagement.webp';
 
-export const logoImage = '/logo.png';
+export const logoImage = '/logo.svg';
 
 export const homeHeroLarge = '/images/hero/alidade-Travaux-de-bois-1.webp';
 export const homeHeroGrid1 = '/images/hero/alidade-Travaux-de-bois-2.webp';
@@ -37,5 +37,4 @@ export const contactMapImage = '/images/qui-sommes-nous/agencement-casablanca-ma
 
 export const quoteBannerImage = '/images/bannieres/menuiserie-Bois2-final.webp';
 
-export const footerHeroImage = '/images/agencement/décoration_intérieure.webp';
 

@@ -1,15 +1,20 @@
 @import 'tailwindcss';
+@import './typography.css';
+@import './gallery.css';
 
 @theme {
     --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
     --font-serif: 'Outfit', ui-sans-serif, system-ui, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
 
-    --color-alidade-navy: #0d1a2d;
-    --color-alidade-dark: #070e19;
-    --color-alidade-gold: #ffe40f;
-    --color-alidade-gold-light: #ffea42;
-    --color-alidade-gold-dark: #e6cd00;
+    --color-brand-blue: #0876ce;
+    --color-brand-cyan: #15c8de;
+    --color-brand-pink: #f5008f;
+    --color-alidade-navy: #22313f;
+    --color-alidade-dark: #191f26;
+    --color-alidade-gold: #15c8de;
+    --color-alidade-gold-light: #83e5ef;
+    --color-alidade-gold-dark: #c40072;
     --color-alidade-gray: #f3f4f6;
     --color-alidade-text: #1f2937;
     --color-alidade-muted: #6b7280;
@@ -17,22 +22,8 @@
 
 /* Custom styles and animations */
 @layer base {
-    /* Taille de police racine : toutes les tailles Tailwind (rem) s'agrandissent proportionnellement.
-       Augmente progressivement sur les écrans larges. */
     html {
-        font-size: 17px;
-    }
-
-    @media (min-width: 1280px) {
-        html {
-            font-size: 18px;
-        }
-    }
-
-    @media (min-width: 1536px) {
-        html {
-            font-size: 19px;
-        }
+        font-size: 16px;
     }
 
     /* Une seule police sur tout le site */
@@ -49,12 +40,11 @@
         overflow-x: hidden;
     }
 
-    /* Mise en page « boxed » : sur très grands écrans le site reste centré
-       à 1536px max au lieu de s'étirer sur toute la largeur */
+    /* Largeur du site reglable dans typography.css. */
     #app {
-        max-width: 96rem;
+        max-width: var(--site-frame-width);
         margin-inline: auto;
-        box-shadow: 0 0 40px rgb(13 26 45 / 0.12);
+        box-shadow: 0 0 40px rgb(0 0 0 / 0.04);
     }
 
     h1,
@@ -74,6 +64,152 @@
 }
 
 @layer components {
+    .brand-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.625rem;
+        min-height: 3.25rem;
+        max-width: 100%;
+        border-radius: 0.5rem;
+        border: 1px solid transparent;
+        background: var(--color-brand-blue);
+        padding: 0.75rem 1.25rem;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0;
+        text-align: center;
+        overflow-wrap: anywhere;
+        cursor: pointer;
+        /* Les deux couches rappellent les encres d'impression. */
+        box-shadow: 3px 3px 0 var(--color-brand-cyan), 6px 6px 0 var(--color-brand-pink);
+        transition:
+            background-color 200ms ease,
+            box-shadow 200ms ease,
+            transform 200ms ease;
+    }
+
+    .brand-button:not(:disabled):not([aria-disabled='true']):is(:hover, :focus-visible) {
+        background: #0664af;
+        box-shadow: 4px 4px 0 var(--color-brand-cyan), 8px 8px 0 var(--color-brand-pink);
+        transform: translate(-2px, -2px);
+    }
+
+    .brand-button:not(:disabled):not([aria-disabled='true']):active {
+        background: #055795;
+        box-shadow: 1px 1px 0 var(--color-brand-cyan), 3px 3px 0 var(--color-brand-pink);
+        transform: translate(2px, 2px);
+    }
+
+    .brand-button-label {
+        min-width: 0;
+    }
+
+    .brand-button-icon {
+        display: inline-flex;
+        flex: 0 0 1.875rem;
+        align-items: center;
+        justify-content: center;
+        width: 1.875rem;
+        height: 1.875rem;
+        border: 1px solid rgb(255 255 255 / 0.3);
+        border-radius: 4px;
+        background: rgb(255 255 255 / 0.12);
+        transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .brand-button-icon > svg {
+        width: 1.125rem;
+        height: 1.125rem;
+        transition: transform 200ms ease;
+    }
+
+    .brand-button:not(:disabled):not([aria-disabled='true']):is(:hover, :focus-visible) .brand-button-icon {
+        background: var(--color-brand-cyan);
+        border-color: var(--color-brand-cyan);
+        color: var(--color-alidade-dark);
+    }
+
+    .brand-button:not(:disabled):not([aria-disabled='true']):is(:hover, :focus-visible) .brand-button-icon > svg {
+        transform: rotate(45deg);
+    }
+
+    .brand-button > svg,
+    .brand-outline-button > svg {
+        flex-shrink: 0;
+    }
+
+    .brand-outline-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-height: 3.25rem;
+        max-width: 100%;
+        border-radius: 0.5rem;
+        border: 1px solid rgb(8 118 206 / 0.3);
+        background: white;
+        padding: 0.875rem 1.5rem;
+        color: var(--color-brand-blue);
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0;
+        text-align: center;
+        overflow-wrap: anywhere;
+        box-shadow: 3px 3px 0 var(--color-brand-cyan);
+        transition:
+            background-color 180ms ease,
+            color 200ms ease,
+            border-color 200ms ease,
+            box-shadow 200ms ease,
+            transform 200ms ease;
+    }
+
+    .brand-outline-button:not(:disabled):not([aria-disabled='true']):is(:hover, :focus-visible) {
+        border-color: var(--color-brand-blue);
+        background: #eff8ff;
+        box-shadow: 3px 3px 0 var(--color-brand-cyan), 6px 6px 0 var(--color-brand-pink);
+        transform: translate(-1px, -1px);
+    }
+
+    .brand-outline-button:not(:disabled):not([aria-disabled='true']):active {
+        box-shadow: 1px 1px 0 var(--color-brand-cyan);
+        transform: translate(1px, 1px);
+    }
+
+    :is(.brand-button, .brand-outline-button):is(:disabled, [aria-disabled='true']) {
+        cursor: not-allowed;
+        opacity: 0.6;
+        box-shadow: none;
+        transform: none;
+    }
+
+    :is(.brand-button, .brand-outline-button)[aria-busy='true'] {
+        cursor: wait;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .brand-button,
+        .brand-outline-button,
+        .brand-button-icon,
+        .brand-button-icon > svg {
+            transition: none;
+        }
+
+        :is(.brand-button, .brand-outline-button):not(:disabled):not([aria-disabled='true']):is(:hover, :focus-visible, :active),
+        .brand-button:not(:disabled):not([aria-disabled='true']):is(:hover, :focus-visible) .brand-button-icon > svg {
+            transform: none;
+        }
+    }
+
+    :where(a, button, input, select, textarea):focus-visible {
+        outline: 3px solid var(--color-brand-blue);
+        outline-offset: 4px;
+    }
+
     .form-input {
         width: 100%;
         border: 1px solid rgb(255 255 255 / 0.1);
@@ -89,7 +225,7 @@
     }
 
     .form-input:focus {
-        border-color: #c5a880;
+        border-color: var(--color-brand-cyan);
     }
 }
 
@@ -136,28 +272,28 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #070e19;
+    background: #f3f4f6;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #c5a059;
+    background: #a9b5bf;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #e6cb95;
+    background: var(--color-brand-blue);
 }
 
 /* Subtle pattern background for sections */
 .wood-pattern {
-    background-image: radial-gradient(rgba(197, 160, 89, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(22, 199, 223, 0.08) 1px, transparent 1px);
     background-size: 24px 24px;
 }
 
 /* Glassmorphism utility */
 .glass-panel {
-    background: rgba(13, 26, 45, 0.8);
+    background: rgb(25 31 38 / 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(197, 160, 89, 0.15);
+    border: 1px solid rgba(22, 199, 223, 0.18);
 }

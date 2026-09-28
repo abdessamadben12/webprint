@@ -1,0 +1,95 @@
+/* Reglages du texte public : 1rem = 16px. Modifier ces valeurs pour tout le site. */
+:root {
+    --site-text-size: 1.25rem; /* Paragraphes : 20px */
+    --site-text-small-size: 1.125rem; /* Textes secondaires : 18px */
+    --site-text-lead-size: 1.375rem; /* Introductions : 22px */
+    --site-text-line-height: 1.75;
+    --site-paragraph-gap: 1rem;
+    --site-text-max-width: 65ch;
+
+    --site-title-size: 3.5rem; /* Titres de page : 56px */
+    --site-title-compact-size: 2.25rem; /* Titres dans une colonne etroite : 36px */
+    --site-heading-size: 2.75rem; /* Titres de section : 44px */
+    --site-subheading-size: 1.75rem; /* Titres de cartes : 28px */
+    --site-label-size: 1.25rem; /* Titres compacts : 20px */
+    --site-title-line-height: 1.15;
+    --site-subheading-line-height: 1.35;
+    --site-content-width: 88rem; /* Sections : 1408px */
+    --site-frame-width: 104rem; /* Cadre du site : 1664px */
+}
+
+@layer components {
+    .site-title-container {
+        container-type: inline-size;
+        container-name: site-title;
+    }
+
+    .site-container {
+        max-width: var(--site-content-width);
+    }
+
+    .site-text,
+    .site-text-small,
+    .site-text-lead {
+        line-height: var(--site-text-line-height);
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .site-text {
+        font-size: var(--site-text-size);
+    }
+
+    .site-text-small {
+        font-size: var(--site-text-small-size);
+    }
+
+    .site-text-lead {
+        font-size: var(--site-text-lead-size);
+    }
+
+    /* Ajouter site-prose au conteneur de plusieurs paragraphes. */
+    .site-prose {
+        max-inline-size: var(--site-text-max-width);
+    }
+
+    .site-prose > p + p {
+        margin-block-start: var(--site-paragraph-gap);
+    }
+
+    .site-title,
+    .site-heading,
+    .site-subheading,
+    .site-label {
+        line-height: var(--site-title-line-height);
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+        text-wrap: balance;
+    }
+
+    .site-title {
+        font-size: var(--site-title-size);
+    }
+
+    .site-heading {
+        font-size: var(--site-heading-size);
+    }
+
+    .site-subheading {
+        font-size: var(--site-subheading-size);
+        line-height: var(--site-subheading-line-height);
+    }
+
+    .site-label {
+        font-size: var(--site-label-size);
+        line-height: var(--site-subheading-line-height);
+    }
+
+    @container site-title (max-width: 22rem) {
+        .site-title {
+            font-size: var(--site-title-compact-size);
+            hyphens: manual;
+        }
+    }
+}

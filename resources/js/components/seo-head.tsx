@@ -11,7 +11,7 @@ interface SeoHeadProps {
     structuredData?: Record<string, unknown>;
 }
 
-const siteName = 'Alidade';
+const siteName = 'webprint.ma';
 const defaultImage = '/images/bannieres/menuiserie-Bois2-final.webp';
 
 function absoluteUrl(path: string, baseUrl: string) {

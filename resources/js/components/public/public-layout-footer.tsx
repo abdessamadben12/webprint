@@ -30,7 +30,7 @@ export function PublicLayoutFooter() {
                 </div>
             </div>
             <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] text-white/28 tracking-wider">
-                <span>&copy; {new Date().getFullYear()} Alidad Ltd. All Rights Reserved.</span>
+                <span>&copy; {new Date().getFullYear()} webprint.ma. All Rights Reserved.</span>
                 <div className="flex gap-5">
                     <a href="#" className="hover:text-[#c5a880] transition-colors">
                         Privacy Policy

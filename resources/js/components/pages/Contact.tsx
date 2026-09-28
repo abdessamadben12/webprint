@@ -1,6 +1,5 @@
 import { EASE, Reveal } from '@/components/motion';
 import { site } from '@/data/site';
-import { contactHeroImage } from '@/image';
 import { useForm } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ChevronDown, Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Paperclip, PenLine, Phone, Send, User } from 'lucide-react';
@@ -36,48 +35,62 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 ">
+        <div className="min-h-screen ">
             {/* SECTION HERO */}
-            <section className="bg-alidade-gray relative flex flex-col items-center overflow-hidden md:flex-row">
-                <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: EASE }}
-                    className="z-10 w-full p-8 sm:p-12 md:w-1/2 md:pl-24"
-                >
-                    <span className="text-alidade-gold flex items-center gap-2 text-sm sm:text-xl font-bold tracking-widest uppercase">
-                        <span className="bg-alidade-gold h-[2px] w-8"></span>
-                        Nous sommes à votre écoute
-                    </span>
-                    <h1 className="text-alidade-navy mt-4 mb-6  text-3xl sm:text-4xl md:text-5xl">Contactez-Nous</h1>
-                    <p className="max-w-md text-lg leading-relaxed text-gray-600">
-                        Une question, un projet ou besoin de conseil ? <br />
-                        Notre équipe est là pour vous accompagner.
-                    </p>
-                </motion.div>
+        <section
+    className="
+        relative flex min-h-[420px] w-full
+        items-center justify-center overflow-hidden
+        bg-[url('/images/backround-print.png')]
+        bg-cover bg-center bg-no-repeat
+        px-6 py-12 text-center text-white
+        md:min-h-[500px]
+    "
+>
+    <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: EASE }}
+        className="
+            relative z-10
+            flex w-full max-w-3xl
+            flex-col items-center justify-center
+            text-center
+        "
+    >
+        <span
+            className="
+                text-alidade-gold
+                flex items-center justify-center gap-3
+                text-sm font-bold tracking-widest uppercase
+                sm:text-xl
+            "
+        >
+            <span className="bg-alidade-gold h-[2px] w-8" />
 
-                {/* Image avec découpe diagonale */}
-                <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
-                    className="relative h-[400px] w-full md:h-[500px] md:w-1/2"
-                >
-                    <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{
-                            backgroundImage: `url("${contactHeroImage}")`,
-                            clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0% 100%)',
-                        }}
-                    />
-                </motion.div>
-            </section>
+            Nous sommes à votre écoute
 
+            <span className="bg-alidade-gold h-[2px] w-8" />
+        </span>
+
+        <h1 className="site-title mt-4 mb-6 text-center text-white">
+            Contactez-Nous
+        </h1>
+
+        <p className="site-text-lead mx-auto max-w-xl text-center text-white/90">
+            Une impression, une enseigne, un stand ou une
+            <br className="hidden sm:block" />
+            campagne à préparer ?
+            <br />
+            Notre équipe vous accompagne.
+        </p>
+    </motion.div>
+</section>
             {/* SECTION FORMULAIRE & INFOS */}
-            <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-3">
+            <section className="mx-auto grid site-container grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-3">
                 {/* Formulaire (Col 1 & 2) */}
                 <Reveal className="rounded-xl border border-gray-100 bg-white p-8 shadow-sm lg:col-span-2" amount={0.1}>
-                    <h2 className="text-alidade-navy border-alidade-gold mb-8 border-l-4 pl-4 text-xl font-bold">Envoyez-nous un message</h2>
+                    <h2 className="site-subheading text-alidade-navy border-alidade-gold mb-8 border-l-4 pl-4 font-bold">Envoyez-nous un message</h2>
 
                     {wasSuccessful && (
                         <div className="border-alidade-gold bg-alidade-gold/10 text-alidade-navy mb-6 flex items-start gap-3 rounded-lg border p-4 text-sm font-medium">
@@ -100,7 +113,7 @@ const Contact: React.FC = () => {
                                     />
                                     <User className="absolute top-4 right-4 h-5 w-5 text-gray-400" />
                                 </div>
-                                {errors.first_name && <p className="mt-1 text-xs text-red-500">{errors.first_name}</p>}
+                                {errors.first_name && <p className="mt-1 site-text-small text-red-500">{errors.first_name}</p>}
                             </div>
 
                             <div>
@@ -115,7 +128,7 @@ const Contact: React.FC = () => {
                                     />
                                     <User className="absolute top-4 right-4 h-5 w-5 text-gray-400" />
                                 </div>
-                                {errors.last_name && <p className="mt-1 text-xs text-red-500">{errors.last_name}</p>}
+                                {errors.last_name && <p className="mt-1 site-text-small text-red-500">{errors.last_name}</p>}
                             </div>
                         </div>
 
@@ -132,7 +145,7 @@ const Contact: React.FC = () => {
                                     />
                                     <Mail className="absolute top-4 right-4 h-5 w-5 text-gray-400" />
                                 </div>
-                                {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+                                {errors.email && <p className="mt-1 site-text-small text-red-500">{errors.email}</p>}
                             </div>
 
                             <div>
@@ -146,7 +159,7 @@ const Contact: React.FC = () => {
                                     />
                                     <Phone className="absolute top-4 right-4 h-5 w-5 text-gray-400" />
                                 </div>
-                                {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+                                {errors.phone && <p className="mt-1 site-text-small text-red-500">{errors.phone}</p>}
                             </div>
                         </div>
 
@@ -158,16 +171,18 @@ const Contact: React.FC = () => {
                                     className="focus:ring-alidade-gold/20 w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 p-4 pr-12 text-gray-600 transition focus:ring-2 focus:outline-none"
                                 >
                                     <option value="">Sujet</option>
-                                    <option value="Rénovation">Rénovation</option>
-                                    <option value="Agencement">Agencement</option>
-                                    <option value="Menuiserie bois">Menuiserie bois</option>
-                                    <option value="Aluminium">Aluminium</option>
-                                    <option value="Peinture et finition">Peinture et finition</option>
+                                    <option value="Impression offset">Impression offset</option>
+                                    <option value="Impression numérique">Impression numérique</option>
+                                    <option value="Grand format et signalétique">Grand format et signalétique</option>
+                                    <option value="PLV et industrie publicitaire">PLV et industrie publicitaire</option>
+                                    <option value="Stand d'exposition">Stand d'exposition</option>
+                                    <option value="Design graphique">Design graphique</option>
+                                    <option value="Publicité par l'objet">Publicité par l'objet</option>
                                     <option value="Autre">Autre</option>
                                 </select>
                                 <ChevronDown className="pointer-events-none absolute top-4 right-4 h-5 w-5 text-gray-400" />
                             </div>
-                            {errors.project_type && <p className="mt-1 text-xs text-red-500">{errors.project_type}</p>}
+                            {errors.project_type && <p className="mt-1 site-text-small text-red-500">{errors.project_type}</p>}
                         </div>
 
                         <div>
@@ -182,7 +197,7 @@ const Contact: React.FC = () => {
                                 ></textarea>
                                 <PenLine className="absolute top-4 right-4 h-5 w-5 text-gray-400" />
                             </div>
-                            {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
+                            {errors.message && <p className="mt-1 site-text-small text-red-500">{errors.message}</p>}
                         </div>
 
                         <div>
@@ -199,14 +214,10 @@ const Contact: React.FC = () => {
                                     onChange={(e) => setData('attachment', e.target.files?.[0] ?? null)}
                                 />
                             </label>
-                            {errors.attachment && <p className="mt-1 text-xs text-red-500">{errors.attachment}</p>}
+                            {errors.attachment && <p className="mt-1 site-text-small text-red-500">{errors.attachment}</p>}
                         </div>
 
-                        <button
-                            type="submit"
-                            disabled={processing}
-                            className="bg-alidade-gold hover:bg-alidade-gold-light text-alidade-navy flex w-full items-center justify-center gap-2 rounded-lg py-4 text-sm font-bold tracking-widest uppercase transition-colors disabled:opacity-50"
-                        >
+                        <button type="submit" disabled={processing} aria-busy={processing} className="brand-button w-full">
                             {processing ? 'Envoi...' : 'Envoyer le message'} <Send className="h-4 w-4 rotate-[-45deg]" />
                         </button>
                     </form>
@@ -215,21 +226,13 @@ const Contact: React.FC = () => {
                 {/* Coordonnées (Col 3) */}
                 <Reveal className="flex flex-col justify-between rounded-xl border border-gray-100 bg-white p-8 shadow-sm" delay={0.15} amount={0.1}>
                     <div>
-                        <h2 className="text-alidade-navy border-alidade-gold mb-8 border-l-4 pl-4 text-xl font-bold">Nos Coordonnées</h2>
+                        <h2 className="site-subheading text-alidade-navy border-alidade-gold mb-8 border-l-4 pl-4 font-bold">Nos Coordonnées</h2>
 
                         <div className="space-y-6">
                             <ContactInfoItem icon={<MapPin />} title="Adresse" content={site.address} />
                             <ContactInfoItem icon={<Phone />} title="Téléphone" content={site.phone} />
                             <ContactInfoItem icon={<Mail />} title="Email" content={site.email} />
-                            <ContactInfoItem
-                                icon={<Clock />}
-                                title="Horaires d'ouverture"
-                                content={
-                                    <>
-                                        Lundi - Vendredi : 8h30 - 18h30
-                                    </>
-                                }
-                            />
+                            <ContactInfoItem icon={<Clock />} title="Horaires d'ouverture" content={<>Lundi - Vendredi : 8h30 - 18h30</>} />
                         </div>
                     </div>
 
@@ -246,20 +249,20 @@ const Contact: React.FC = () => {
             {/* SECTION MAP */}
             <section className="bg-alidade-dark flex min-h-[400px] flex-col md:flex-row">
                 <Reveal className="flex w-full flex-col justify-center p-8 sm:p-12 md:w-2/5 md:pl-24" amount={0.3}>
-                    <span className="text-alidade-gold mb-4 flex items-center gap-2 text-sm sm:text-xl font-bold">
+                    <span className="text-alidade-gold mb-4 flex items-center gap-2 text-sm font-bold sm:text-xl">
                         <span className="bg-alidade-gold h-[2px] w-8"></span>
                         Où nous trouver ?
                     </span>
-                    <p className="max-w-xs text-3xl text-white">
-                        Retrouvez-nous au cœur de Casablanca. <br />
-                        Nous serons ravis de vous accueillir.
+                    <p className="site-text-lead max-w-xs text-white">
+                        Retrouvez webprint.ma au cœur de Casablanca. <br />
+                        Nous serons ravis de vous conseiller.
                     </p>
                 </Reveal>
 
                 <div className="relative min-h-[400px] w-full overflow-hidden md:w-3/5">
                     <iframe
                         src={site.mapEmbedUrl}
-                        title="Localisation Alidade sur Google Maps"
+                        title="Localisation webprint.ma sur Google Maps"
                         className="absolute inset-0 h-full w-full border-0"
                         allowFullScreen
                         loading="lazy"
@@ -274,12 +277,12 @@ const Contact: React.FC = () => {
 // Sous-composants pour la propreté du code
 const ContactInfoItem = ({ icon, title, content }: { icon: React.ReactNode; title: string; content: React.ReactNode }) => (
     <div className="flex gap-4">
-        <div className="bg-alidade-gold h-fit rounded-full p-3 text-white">
+        <div className="bg-brand-blue/5 text-brand-blue h-fit rounded-lg p-3">
             {React.cloneElement(icon as React.ReactElement<{ size?: number }>, { size: 18 })}
         </div>
         <div>
-            <h3 className="text-alidade-navy text-sm font-bold">{title}</h3>
-            <div className="text-sm leading-relaxed text-gray-500">{content}</div>
+            <h3 className="site-label text-alidade-navy font-bold">{title}</h3>
+            <div className="site-text text-gray-500">{content}</div>
         </div>
     </div>
 );

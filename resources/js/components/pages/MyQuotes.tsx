@@ -26,15 +26,17 @@ export default function MyQuotes({ onNavigateToRequest }: MyQuotesProps) {
                 fullName: 'Yasmine Benjelloun',
                 email: 'yasmine.b@gmail.com',
                 phone: '06 61 22 33 44',
-                projectType: 'Menuiserie Bois & Cuisine Moderne',
+                projectType: 'Impression grand format et signaletique',
                 description:
                     "Agencement complet d'une cuisine ouverte de 12m². Installation d'un îlot central en Noyer d'ébéniste, façades laquées noir mat anti-traces, éclairage LED périphérique intégré sous meubles hauts. Quincaillerie Blum requise.",
-                budget: '85 000 MAD',
+                budget: '8 500 MAD',
                 date: '25 Juin 2026 à 14:32',
                 status: "En cours d'étude",
-                estimatedCostMin: 78000,
-                estimatedCostMax: 89000,
+                estimatedCostMin: 7800,
+                estimatedCostMax: 9200,
             };
+            defaultQuote.description =
+                "Impression d'une bache 3x2m pour vitrine, 1 000 flyers A5 recto verso et creation d'un visuel adapte a une campagne locale.";
             existingQuotes = [defaultQuote];
             localStorage.setItem('alidade_quotes', JSON.stringify(existingQuotes));
         }
@@ -97,7 +99,7 @@ export default function MyQuotes({ onNavigateToRequest }: MyQuotesProps) {
                             </div>
                             <div className="space-y-1">
                                 <h3 className="text-alidade-navy text-sm font-bold uppercase">Aucun devis enregistré</h3>
-                                <p className="text-xs font-light text-gray-400">
+                                <p className="site-text font-light text-gray-400">
                                     Vous n'avez pas encore soumis de demande de devis ou de projet via nos formulaires.
                                 </p>
                             </div>
@@ -164,7 +166,7 @@ export default function MyQuotes({ onNavigateToRequest }: MyQuotesProps) {
                                                 <h4 className="text-alidade-navy font-sans text-base font-bold tracking-wide uppercase">
                                                     {quote.projectType}
                                                 </h4>
-                                                <p className="rounded-xl border border-gray-100 bg-gray-50/50 p-4 text-xs leading-relaxed font-light whitespace-pre-line text-gray-500">
+                                                <p className="site-text rounded-xl border border-gray-100 bg-gray-50/50 p-4 font-light whitespace-pre-line text-gray-500">
                                                     {quote.description}
                                                 </p>
                                             </div>
@@ -199,7 +201,7 @@ export default function MyQuotes({ onNavigateToRequest }: MyQuotesProps) {
                                             )}
                                         </div>
 
-                                        {/* Dynamic Simulated Response Banner from Alidade Engineers */}
+                                        {/* Dynamic simulated response banner */}
                                         <div className="from-alidade-navy/5 flex items-start gap-3 border-t border-gray-100 bg-gradient-to-r to-transparent px-6 py-4">
                                             <div className="bg-alidade-gold/10 text-alidade-gold mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
                                                 <UserCheck size={14} />
@@ -209,10 +211,10 @@ export default function MyQuotes({ onNavigateToRequest }: MyQuotesProps) {
                                                     <span>Étude Technique par : Youssef El Alami</span>
                                                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" title="Chargé d'affaire en ligne" />
                                                 </div>
-                                                <p className="text-[11px] leading-relaxed font-light text-gray-500">
+                                                <p className="site-text-small font-light text-gray-500">
                                                     {isPending
-                                                        ? "Votre dossier est en cours de répartition au bureau d'étude technique. Un de nos menuisiers/conducteurs d'agencement sera désigné d'ici 12 heures."
-                                                        : "Dossier pris en charge. Nous étudions l'épaisseur de bois et la quincaillerie Blum à préconiser. Une visite sur site à Casablanca est recommandée pour finaliser les cotes."}
+                                                        ? "Votre dossier est en cours d'etude. Un conseiller va verifier les formats, quantites et supports avant de revenir vers vous."
+                                                        : "Dossier pris en charge. Nous etudions les supports d'impression, les finitions et les delais de production recommandes."}
                                                 </p>
                                             </div>
                                         </div>

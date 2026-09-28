@@ -8,9 +8,9 @@ export default function ContactPage() {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
-                title="Contact Alidade | Demandez votre devis travaux"
-                description="Contactez Alidade pour étudier votre projet de rénovation, agencement, menuiserie ou aluminium à Casablanca et au Maroc."
-                keywords={['devis rénovation Casablanca', 'contact Alidade', 'devis agencement Maroc', 'entreprise travaux Casablanca']}
+                title="Contact webprint.ma | Demandez votre devis impression"
+                description="Contactez webprint.ma pour vos impressions, supports grand format, signalétique, PLV, stands et objets publicitaires au Maroc."
+                keywords={['devis impression Casablanca', 'contact webprint.ma', 'imprimerie Casablanca', 'PLV Maroc']}
                 image={contactHeroImage}
             />
             <Navbar />

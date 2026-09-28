@@ -40,7 +40,7 @@ export function SiteNavbar() {
                 <Link href="/" className="group relative flex h-20 w-20 flex-col items-center justify-center">
                     <img
                         src="https://images.squarespace-cdn.com/content/v1/59a04bd7ccc5c57774dca178/b2556410-4668-41e5-9c31-1b8ee9e16109/alidad+logo+edit.jpg?format=750w"
-                        alt="Logo Alidad"
+                        alt="Logo webprint.ma"
                         className="h-full w-full object-contain transition-opacity duration-300 group-hover:opacity-75"
                     />
                 </Link>

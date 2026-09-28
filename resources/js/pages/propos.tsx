@@ -7,10 +7,10 @@ export default function AproposPage() {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
-                title="À propos d'Alidade | Expertise travaux et agencement"
-                description="Découvrez Alidade, son atelier, ses artisans et son savoir-faire en rénovation, menuiserie et agencement sur mesure au Maroc."
-                keywords={['entreprise rénovation Maroc', 'artisan menuisier Casablanca', 'atelier agencement', 'Alidade Maroc']}
-                image="/images/qui-sommes-nous/atelier-finition.webp"
+                title="À propos de webprint.ma | Imprimerie et communication visuelle"
+                description="Découvrez webprint.ma, son savoir-faire en impression, signalétique, PLV, stands et conception graphique au Maroc."
+                keywords={['imprimerie Casablanca', 'communication visuelle Maroc', 'impression publicitaire', 'webprint.ma Maroc']}
+                image="/images/qui-sommes-nous/atelier-finition.png"
             />
             <Navbar />
             <main className="flex-grow">
