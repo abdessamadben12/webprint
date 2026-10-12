@@ -87,13 +87,13 @@ export default function Hero({
                 "Votre imprimerie à Casablanca, de la création à la pose : impression numérique, bâches publicitaires, adhésifs vinyle, habillage de véhicules et de vitrines.",
             cta: 'Découvrir nos produits',
         },
-        {
-            title: 'Design graphique & communication visuelle',
-            subtitle: 'webprint.ma',
-            description:
-                'Logo, flyers, catalogues ou signalétique : nos graphistes à Casablanca créent vos fichiers prêts à imprimer et des supports qui valorisent votre marque.',
-            cta: 'Demander un devis',
-        },
+       {
+    title: 'Impression grand format & habillage publicitaire à Casablanca',
+    subtitle: 'webprint.ma',
+    description:
+        'Spécialiste de l’impression sur bâche et vinyle adhésif à Casablanca, Webprint réalise vos palissades de chantier, habillages de véhicules et supports publicitaires grand format. Des solutions d’impression professionnelles pour renforcer la visibilité de votre entreprise.',
+    cta: 'Demander un devis',
+},
     ];
 
     const nextSlide = () => {
