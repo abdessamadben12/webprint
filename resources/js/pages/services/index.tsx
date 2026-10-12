@@ -8,9 +8,9 @@ export default function ServicesPage() {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
-                title="Services webprint.ma | Imprimerie, signaletique, PLV et stands"
-                description="Impression offset et numerique, grand format, signaletique, PLV, stands, design graphique et objets publicitaires a Casablanca."
-                keywords={['imprimerie Casablanca', 'impression numerique Maroc', 'PLV Casablanca', 'stand exposition Maroc', 'webprint.ma services']}
+                title="Nos services d'impression à Casablanca | webprint.ma"
+                description="Impression numérique et grand format, industrie publicitaire, habillage de véhicule, balisage de chantier, vinyle, bâches, vitrines et design graphique à Casablanca."
+                keywords={['imprimerie Casablanca', 'impression numérique Maroc', 'impression grand format Casablanca', 'habillage véhicule Casablanca', 'vitrophanie Casablanca', 'webprint.ma services']}
             />
             <Navbar />
             <main className="flex-grow">

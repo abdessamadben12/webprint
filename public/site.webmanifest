@@ -1,0 +1,25 @@
+{
+    "name": "webprint.ma - Imprimerie à Casablanca",
+    "short_name": "webprint.ma",
+    "description": "Imprimerie à Casablanca : impression numérique, impression grand format, bâches, adhésifs vinyle, habillage de véhicules et de vitrines.",
+    "lang": "fr-MA",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0d1a2d",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

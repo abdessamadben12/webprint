@@ -26,7 +26,7 @@ export default function MyQuotes({ onNavigateToRequest }: MyQuotesProps) {
                 fullName: 'Yasmine Benjelloun',
                 email: 'yasmine.b@gmail.com',
                 phone: '06 61 22 33 44',
-                projectType: 'Impression grand format et signaletique',
+                projectType: 'Impression grand format',
                 description:
                     "Agencement complet d'une cuisine ouverte de 12m². Installation d'un îlot central en Noyer d'ébéniste, façades laquées noir mat anti-traces, éclairage LED périphérique intégré sous meubles hauts. Quincaillerie Blum requise.",
                 budget: '8 500 MAD',

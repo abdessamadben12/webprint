@@ -1,5 +1,7 @@
 import { Reveal, Stagger, StaggerItem } from '@/components/motion';
+import { services, serviceUrl } from '@/data/services';
 import { site } from '@/data/site';
+import { Link } from '@inertiajs/react';
 import { logoImage } from '@/image';
 import { motion } from 'framer-motion';
 
@@ -231,6 +233,41 @@ const Footer: React.FC = () => {
                     />
                 </Stagger>
             </div>
+
+            {/* Liens services et ressources */}
+            <nav aria-label="Liens du pied de page" className="relative z-10 border-t border-white/10 bg-[#0d1a2d]/40 backdrop-blur-sm">
+                <div className="mx-auto flex max-w-7xl flex-col gap-6 px-8 py-8 lg:flex-row lg:items-start lg:gap-12 lg:px-12">
+                    <div className="flex-1">
+                        <h2 className="site-label mb-4 font-bold uppercase">Nos services</h2>
+                        <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                            {services.map((service) => (
+                                <li key={service.slug}>
+                                    <Link href={serviceUrl(service.slug)} className="site-text-small text-gray-300 transition-colors hover:text-white">
+                                        {service.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 className="site-label mb-4 font-bold uppercase">Ressources</h2>
+                        <ul className="flex flex-col gap-2">
+                            {[
+                                ['/articles', 'Articles & conseils'],
+                                ['/apropos', 'À propos'],
+                                ['/devis', 'Demander un devis'],
+                                ['/contact', 'Contact'],
+                            ].map(([href, label]) => (
+                                <li key={href}>
+                                    <Link href={href} className="site-text-small text-gray-300 transition-colors hover:text-white">
+                                        {label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
 
             {/* Bas de page */}
             <div

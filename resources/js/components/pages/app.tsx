@@ -15,7 +15,7 @@ import GallerySpread from '@/components/pages/gallery-spread';
 /** Old tab-based URLs (/?tab=...) now redirect to their dedicated routes. */
 const legacyTabRoutes: Record<string, string> = {
     apropos: '/apropos',
-    services: '/savoir-faire',
+    services: '/services',
     gallery: '/galerie',
     configurator: '/configurateur',
     devis: '/devis',
@@ -37,7 +37,7 @@ export default function App() {
 
             <main className="animate-in fade-in flex-grow duration-500">
                 {/* 1. Hero */}
-                <HeroSlider onDiscoverClick={() => router.visit('/savoir-faire')} />
+                <HeroSlider onDiscoverClick={() => router.visit('/services')} />
 
                 {/* 2. Engagements */}
                 <EngagementSection />

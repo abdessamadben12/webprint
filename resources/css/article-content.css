@@ -1,0 +1,203 @@
+/* Mise en forme du contenu riche des articles.
+   Utilisee a la fois sur la page publique et dans l'editeur de l'administration (rendu identique). */
+@layer components {
+    .article-content {
+        --article-text: #1f2937;
+        --article-heading: var(--color-alidade-navy);
+        color: var(--article-text);
+        font-size: 1.125rem;
+        line-height: 1.8;
+        overflow-wrap: anywhere;
+    }
+
+    @media (min-width: 768px) {
+        .article-content {
+            font-size: 1.1875rem;
+        }
+    }
+
+    .article-content > * + * {
+        margin-top: 1.25em;
+    }
+
+    .article-content h1,
+    .article-content h2,
+    .article-content h3,
+    .article-content h4 {
+        color: var(--article-heading);
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        text-wrap: balance;
+        scroll-margin-top: 6rem;
+    }
+
+    .article-content h1 {
+        font-size: clamp(1.875rem, 1.4rem + 2vw, 2.5rem);
+        margin-top: 1.6em;
+    }
+
+    .article-content h2 {
+        font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2rem);
+        margin-top: 1.6em;
+    }
+
+    .article-content h3 {
+        font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+        margin-top: 1.4em;
+    }
+
+    .article-content h4 {
+        font-size: 1.125em;
+        margin-top: 1.3em;
+    }
+
+    .article-content > :first-child {
+        margin-top: 0;
+    }
+
+    .article-content a {
+        color: var(--color-brand-blue);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+        color: #0664af;
+    }
+
+    .article-content strong,
+    .article-content b {
+        font-weight: 700;
+    }
+
+    .article-content ul,
+    .article-content ol {
+        padding-left: 1.5em;
+    }
+
+    .article-content ul {
+        list-style: disc;
+    }
+
+    .article-content ol {
+        list-style: decimal;
+    }
+
+    .article-content li + li {
+        margin-top: 0.4em;
+    }
+
+    .article-content li::marker {
+        color: var(--color-brand-blue);
+    }
+
+    .article-content li > p {
+        margin: 0;
+    }
+
+    .article-content img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-inline: auto;
+        border-radius: 0.75rem;
+    }
+
+    .article-content blockquote {
+        border-left: 4px solid var(--color-brand-cyan);
+        background: #f9f7f3;
+        padding: 1em 1.25em;
+        border-radius: 0 0.5rem 0.5rem 0;
+        font-style: italic;
+    }
+
+    .article-content hr {
+        border: 0;
+        border-top: 1px solid #e5e7eb;
+        margin-block: 2em;
+    }
+
+    .article-content mark {
+        padding: 0.05em 0.2em;
+        border-radius: 0.2em;
+        color: inherit;
+    }
+
+    .article-content code {
+        background: #f3f4f6;
+        padding: 0.1em 0.35em;
+        border-radius: 0.25em;
+        font-size: 0.9em;
+    }
+
+    .article-content pre {
+        background: #191f26;
+        color: #f3f4f6;
+        padding: 1em;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+    }
+
+    .article-content pre code {
+        background: transparent;
+        padding: 0;
+    }
+
+    /* Espacement entre blocs insere depuis l'editeur. */
+    .article-content div[data-spacer] {
+        margin: 0;
+        height: 2rem;
+    }
+
+    .article-content div[data-spacer][data-size='sm'] {
+        height: 1rem;
+    }
+
+    .article-content div[data-spacer][data-size='lg'] {
+        height: 4rem;
+    }
+
+    .article-content div[data-spacer][data-size='xl'] {
+        height: 6rem;
+    }
+
+    /* Paragraphes vides crees par l'editeur : conserver une ligne. */
+    .article-content p:empty::before {
+        content: '\00a0';
+    }
+}
+
+/* Editeur de l'administration : reperes visuels non affiches sur le site public. */
+@layer components {
+    .rich-text-editor .ProseMirror {
+        background: #ffffff;
+    }
+
+    .rich-text-editor .ProseMirror div[data-spacer] {
+        background: repeating-linear-gradient(45deg, #f3f4f6, #f3f4f6 6px, #ffffff 6px, #ffffff 12px);
+        border: 1px dashed #d1d5db;
+        border-radius: 0.375rem;
+    }
+
+    .rich-text-editor .ProseMirror .ProseMirror-selectednode {
+        outline: 3px solid #0876ce;
+        outline-offset: 2px;
+    }
+
+    .rich-text-editor .ProseMirror img {
+        cursor: pointer;
+    }
+
+    .rich-text-editor .ProseMirror p.is-editor-empty:first-child::before {
+        content: attr(data-placeholder);
+        float: left;
+        height: 0;
+        color: #9ca3af;
+        pointer-events: none;
+    }
+
+    .rich-text-editor .ProseMirror p:empty::before {
+        content: none;
+    }
+}

@@ -4,6 +4,7 @@
  */
 
 import { Reveal, Stagger, StaggerItem } from '@/components/motion';
+import { services } from '@/data/services';
 import { quoteBannerImage } from '@/image';
 import {
     AlignLeft,
@@ -42,7 +43,7 @@ export default function QuoteRequest({
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [projectType, setProjectType] = useState('Impression offset');
+    const [projectType, setProjectType] = useState(services[0].title);
     const [description, setDescription] = useState('');
     const [budget, setBudget] = useState('');
     const [fileName, setFileName] = useState<string | null>(null);
@@ -56,7 +57,7 @@ export default function QuoteRequest({
     useEffect(() => {
         if (preFilledSummary) {
             setDescription(preFilledSummary);
-            setProjectType('Impression offset');
+            setProjectType(services[0].title);
             if (preFilledCost) {
                 setBudget(`${preFilledCost} MAD`);
             }
@@ -157,7 +158,7 @@ export default function QuoteRequest({
                                 <span className="text-alidade-gold font-serif">Devis Gratuit</span>
                             </h2>
                             <p className="site-text max-w-lg text-gray-300">
-                                Décrivez votre besoin d'impression, de signalétique, de PLV, de stand ou d'objet publicitaire. Notre équipe vous
+                                Décrivez votre besoin d'impression, de bâches, d'habillage de véhicule ou de vitrine. Notre équipe vous
                                 prépare un estimatif clair sous 48 heures.
                             </p>
 
@@ -297,13 +298,12 @@ export default function QuoteRequest({
                                                 className="focus:ring-alidade-gold focus:border-alidade-gold w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 py-3.5 pr-10 pl-4 text-xs font-medium outline-none focus:ring-1"
                                                 id="quote-type-input"
                                             >
-                                                <option value="Impression offset">Impression offset</option>
-                                                <option value="Impression numérique">Impression numérique</option>
-                                                <option value="Grand format et signalétique">Grand format et signalétique</option>
-                                                <option value="PLV et industrie publicitaire">PLV et industrie publicitaire</option>
-                                                <option value="Stand d'exposition">Stand d'exposition</option>
-                                                <option value="Design graphique">Design graphique</option>
-                                                <option value="Publicité par l'objet">Publicité par l'objet</option>
+                                                {services.map((service) => (
+                                                    <option key={service.slug} value={service.title}>
+                                                        {service.title}
+                                                    </option>
+                                                ))}
+                                                <option value="Autre">Autre</option>
                                             </select>
                                             <ChevronDown
                                                 size={15}
@@ -326,7 +326,7 @@ export default function QuoteRequest({
                                         </div>
                                         <div className="relative">
                                             <textarea
-                                                placeholder="Ex: 500 flyers A5 recto verso, carte de visite, bâche 3x2m, enseigne, stand, logo ou objet publicitaire..."
+                                                placeholder="Ex: 500 flyers A5 recto verso, cartes de visite, bâche 3x2m, covering de véhicule, vitrophanie, logo..."
                                                 required
                                                 rows={4}
                                                 value={description}

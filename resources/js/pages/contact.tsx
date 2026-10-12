@@ -9,8 +9,8 @@ export default function ContactPage() {
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
                 title="Contact webprint.ma | Demandez votre devis impression"
-                description="Contactez webprint.ma pour vos impressions, supports grand format, signalétique, PLV, stands et objets publicitaires au Maroc."
-                keywords={['devis impression Casablanca', 'contact webprint.ma', 'imprimerie Casablanca', 'PLV Maroc']}
+                description="Contactez webprint.ma pour vos impressions numeriques et grand format, baches, habillage de vehicules et de vitrines au Maroc."
+                keywords={['devis impression Casablanca', 'contact webprint.ma', 'imprimerie Casablanca', 'impression grand format Maroc']}
                 image={contactHeroImage}
             />
             <Navbar />

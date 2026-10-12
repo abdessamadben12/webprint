@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
+use App\Models\Article;
+use App\Support\ServicePages;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -33,47 +37,65 @@ Route::get('services', function () {
     return Inertia::render('services/index');
 })->name('services');
 
-Route::get('services/{service}', function (string $service) {
-    return Inertia::render('services/show', ['slug' => $service]);
-})->name('services.show');
+// Une page par service, a la racine du site : /impression-numerique, /habillage-vehicule, ...
+foreach (ServicePages::SLUGS as $serviceSlug) {
+    Route::get($serviceSlug, fn () => Inertia::render('services/show', ['slug' => $serviceSlug]))
+        ->name('service.'.$serviceSlug);
+}
 
-Route::get('savoir-faire', function () {
-    return Inertia::render('services/index');
-})->name('savoir-faire');
+// Anciennes URLs des services : redirection permanente vers les nouvelles pages.
+Route::get('services/{service}', fn (string $service) => redirect(ServicePages::legacyTarget($service), 301))
+    ->name('services.show');
 
-Route::get('savoir-faire/{service}', function (string $service) {
-    return Inertia::render('services/show', ['slug' => $service]);
-})->name('savoir-faire.show');
+Route::get('savoir-faire', fn () => redirect('/services', 301))->name('savoir-faire');
+
+Route::get('savoir-faire/{service}', fn (string $service) => redirect(ServicePages::legacyTarget($service), 301))
+    ->name('savoir-faire.show');
+
+Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 
 Route::get('sitemap.xml', function () {
-    $paths = [
-        '/',
-        '/apropos',
-        '/services',
-        '/savoir-faire',
-        '/services/impression-offset',
-        '/services/impression-numerique',
-        '/services/grand-format',
-        '/services/plv-industrie-publicitaire',
-        '/services/stand-exposition',
-        '/services/design-graphique',
-        '/services/publicite-par-objet',
-        '/configurateur',
-        '/devis',
-        '/contact',
-    ];
-    $lastModified = now()->toAtomString();
-    $urls = collect($paths)
-        ->map(fn (string $path) => sprintf(
-            '<url><loc>%s</loc><lastmod>%s</lastmod></url>',
-            e(url($path)),
-            $lastModified
+    $baseUrl = 'https://webprint.ma';
+
+    $entries = collect([
+        ['path' => '/', 'priority' => '1.0', 'changefreq' => 'weekly'],
+        ['path' => '/apropos', 'priority' => '0.7', 'changefreq' => 'monthly'],
+        ['path' => '/services', 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ...array_map(fn (string $slug) => ['path' => '/'.$slug, 'priority' => '0.8', 'changefreq' => 'monthly'], ServicePages::SLUGS),
+        ['path' => '/articles', 'priority' => '0.8', 'changefreq' => 'daily'],
+        ['path' => '/configurateur', 'priority' => '0.7', 'changefreq' => 'monthly'],
+        ['path' => '/devis', 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['path' => '/contact', 'priority' => '0.8', 'changefreq' => 'monthly'],
+    ]);
+
+    $articles = Article::published()
+        ->where('noindex', false)
+        ->latest('published_at')
+        ->get(['slug', 'updated_at'])
+        ->map(fn (Article $article) => [
+            'path' => '/articles/'.$article->slug,
+            'priority' => '0.7',
+            'changefreq' => 'monthly',
+            'lastmod' => $article->updated_at->toAtomString(),
+        ]);
+
+    $urls = $entries->concat($articles)
+        ->map(fn (array $entry) => sprintf(
+            '<url><loc>%s</loc>%s<changefreq>%s</changefreq><priority>%s</priority>%s</url>',
+            e($baseUrl . $entry['path']),
+            isset($entry['lastmod']) ? '<lastmod>'.e($entry['lastmod']).'</lastmod>' : '',
+            $entry['changefreq'],
+            $entry['priority'],
+            isset(ServicePages::IMAGES[ltrim($entry['path'], '/')])
+                ? '<image:image><image:loc>'.e($baseUrl.ServicePages::IMAGES[ltrim($entry['path'], '/')]).'</image:loc></image:image>'
+                : ''
         ))
         ->implode('');
 
     return response(
         '<?xml version="1.0" encoding="UTF-8"?>'
-        . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
         . $urls
         . '</urlset>',
         200,
@@ -88,6 +110,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('messages/{contactMessage}', [ContactController::class, 'showMessage'])->name('messages.show');
     Route::delete('messages/{contactMessage}', [ContactController::class, 'destroyMessage'])->name('messages.destroy');
     Route::get('messages/{contactMessage}/attachment', [ContactController::class, 'attachment'])->name('messages.attachment');
+
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::post('articles/upload-image', [AdminArticleController::class, 'uploadImage'])->name('articles.upload-image');
+        Route::patch('articles/{article}/toggle-status', [AdminArticleController::class, 'toggleStatus'])->name('articles.toggle-status');
+        Route::resource('articles', AdminArticleController::class)->except('show');
+    });
 });
 
 require __DIR__ . '/settings.php';

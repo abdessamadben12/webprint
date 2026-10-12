@@ -6,7 +6,7 @@ export default function About() {
     const highlights = [
         {
             title: 'Impression tous supports',
-            description: 'Offset, numerique, petit format et grand format pour vos documents commerciaux et supports de marque.',
+            description: 'Numerique, petit format et grand format pour vos documents commerciaux et supports de marque.',
             icon: Printer,
         },
         {
@@ -15,8 +15,8 @@ export default function About() {
             icon: Brush,
         },
         {
-            title: 'Signaletique et PLV',
-            description: 'Enseignes, panneaux, presentoirs, palissades de chantier et solutions visibles sur point de vente.',
+            title: 'Habillage et balisage',
+            description: 'Vehicules, vitrines, baches, adhesifs vinyle et balisage de chantier pour une visibilite maximale.',
             icon: Flag,
         },
     ];
@@ -48,17 +48,17 @@ export default function About() {
         {
             image: aboutProjectOne,
             title: 'Impression',
-            subtitle: 'Offset, numerique, brochures, flyers et cartes',
+            subtitle: 'Numerique, brochures, flyers et cartes',
         },
         {
             image: aboutProjectTwo,
             title: 'Grand format',
-            subtitle: 'Baches, affiches, vitrophanie et signaletique',
+            subtitle: 'Baches, affiches, vitrophanie et vinyle',
         },
         {
             image: aboutProjectThree,
             title: 'Industrie publicitaire',
-            subtitle: 'PLV, stands, enseignes et objets personnalises',
+            subtitle: 'Campagnes d affichage, salons et evenements',
         },
     ];
 

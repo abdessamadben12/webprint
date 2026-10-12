@@ -51,26 +51,26 @@ const brandIcons = [
     {
         image: '/images/webprint/icon-print.svg',
         title: 'Impression Publicitaire',
-        text: 'Flyers, dépliants et blocs-notes',
-        href: '/services/impression-offset',
+        text: 'Flyers, dépliants, cartes de visite',
+        href: '/impression-numerique',
     },
     {
         image: '/images/webprint/icon-design.svg',
         title: 'Design Graphique',
-        text: 'Logo, habillage et supports web',
-        href: '/services/design-graphique',
+        text: 'Logo, identité visuelle, maquettes',
+        href: '/design-graphique',
     },
     {
         image: '/images/webprint/icon-large-format.svg',
-        title: 'Signalétique & PLV',
-        text: 'Bâches, panneaux et X-Banner',
-        href: '/services/grand-format',
+        title: 'Grand Format & Bâches',
+        text: 'Bâches, roll-up, palissades',
+        href: '/impression-grand-format',
     },
     {
         image: null,
-        title: 'Objets Publicitaires',
-        text: 'Stylos, plaques et porte-clés',
-        href: '/services/publicite-par-objet',
+        title: 'Habillage Véhicule',
+        text: 'Covering, marquage de flottes',
+        href: '/habillage-vehicule',
     },
 ];
 
@@ -81,17 +81,17 @@ export default function Hero({
 
     const slides = [
         {
-            title: 'Impression & objets publicitaires',
+            title: 'Imprimerie à Casablanca & grand format',
             subtitle: 'webprint.ma',
             description:
-                "Des solutions d'impression en ligne pour vos supports de communication : flyers, dépliants, cartes, PLV, signalétique et objets personnalisés.",
+                "Votre imprimerie à Casablanca, de la création à la pose : impression numérique, bâches publicitaires, adhésifs vinyle, habillage de véhicules et de vitrines.",
             cta: 'Découvrir nos produits',
         },
         {
-            title: 'Design & communication visuelle',
+            title: 'Design graphique & communication visuelle',
             subtitle: 'webprint.ma',
             description:
-                'Développez votre image avec une création graphique cohérente, des fichiers prêts à imprimer et des supports adaptés à vos campagnes.',
+                'Logo, flyers, catalogues ou signalétique : nos graphistes à Casablanca créent vos fichiers prêts à imprimer et des supports qui valorisent votre marque.',
             cta: 'Demander un devis',
         },
     ];
@@ -203,7 +203,7 @@ export default function Hero({
                             <div className="relative col-span-7 h-full overflow-hidden">
                                 <img
                                     src={heroImage}
-                                    alt="Atelier de création et supports imprimés webprint.ma"
+                                    alt="Imprimerie à Casablanca webprint.ma : supports imprimés et grand format"
                                     className="absolute inset-0 h-full w-full object-cover"
                                     fetchPriority="high"
                                 />
@@ -218,7 +218,7 @@ export default function Hero({
                                     >
                                         <img
                                             src={item}
-                                            alt={`Impression webprint ${key + 1}`}
+                                            alt={`Impression grand format et numérique à Casablanca - réalisation ${key + 1}`}
                                             className="absolute inset-0 h-full w-full object-cover"
                                             loading="lazy"
                                         />

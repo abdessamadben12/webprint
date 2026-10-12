@@ -12,7 +12,6 @@ export default function DevisPage() {
     const [preFilledCost, setPreFilledCost] = useState(0);
 
     useEffect(() => {
-        // Pre-fill from a service page (/devis?service=...)
         const params = new URLSearchParams(window.location.search);
         const service = params.get('service');
         if (service) {
@@ -23,7 +22,6 @@ export default function DevisPage() {
             return;
         }
 
-        // Pre-fill from the configurator (stored just before navigation)
         const summary = sessionStorage.getItem('alidade_prefill_summary');
         if (summary) {
             setPreFilledSummary(summary);
@@ -38,8 +36,8 @@ export default function DevisPage() {
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
                 title="Demande de devis webprint.ma | Impression et communication visuelle"
-                description="Décrivez votre projet d'impression, signalétique, PLV, stand ou objet publicitaire et recevez un devis gratuit à Casablanca."
-                keywords={['devis impression Casablanca', 'impression numérique Maroc', 'devis grand format', 'webprint.ma devis']}
+                description="Decrivez votre projet d'impression, de baches, d'habillage de vehicule ou de vitrine et recevez un devis gratuit a Casablanca."
+                keywords={['devis impression Casablanca', 'impression numerique Maroc', 'devis grand format', 'webprint.ma devis']}
             />
             <Navbar />
             <main className="flex-grow">

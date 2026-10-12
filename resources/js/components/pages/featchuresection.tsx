@@ -98,7 +98,7 @@ export const EngagementSection: React.FC = () => {
             <div className="mx-auto site-container">
                 {/* Header Section */}
                 <Reveal className="mb-16 text-center">
-                    <h2 className="site-heading text-alidade-navy serif-display font-bold">Un partenaire de confiance à chaque étape</h2>
+                    <h2 className="site-heading text-alidade-navy serif-display font-bold">Votre imprimerie à Casablanca, de l'idée à l'impression</h2>
                 </Reveal>
 
                 {/* Grille de Cartes */}
@@ -106,11 +106,11 @@ export const EngagementSection: React.FC = () => {
                     <StaggerItem className="h-full">
                         <ServiceCard
                             number="01"
-                            title="Qui Sommes Nous"
+                            title="Qui sommes-nous ?"
                             icon={<User size={28} />}
                             color="blue"
-                            description="Besoin d'un partenaire pour creer, imprimer et livrer vos supports de communication..."
-                            subDescription="webprint.ma accompagne vos projets d'impression, signaletique, PLV, stands et objets publicitaires au Maroc."
+                            description="webprint.ma est une imprimerie professionnelle à Casablanca au service des entreprises, commerces et agences."
+                            subDescription="Impression numérique, impression grand format, habillage de véhicules et de vitrines, design graphique : un seul interlocuteur pour tous vos supports."
                             path="/apropos"
                         />
                     </StaggerItem>
@@ -118,11 +118,11 @@ export const EngagementSection: React.FC = () => {
                     <StaggerItem className="h-full">
                         <ServiceCard
                             number="02"
-                            title="Atelier Print"
+                            title="Notre atelier d'impression"
                             icon={<Home size={28} />}
                             color="cyan"
-                            description="Nous accordons une attention particuliere au choix du papier, du support, des couleurs et des finitions."
-                            subDescription="Du fichier a la production, chaque support est prepare pour obtenir un rendu propre, durable et professionnel."
+                            description="Papier, bâche, vinyle ou PVC : nous choisissons avec vous le bon support, les bonnes couleurs et la bonne finition."
+                            subDescription="Du fichier à la pose, chaque impression est contrôlée pour un rendu net, durable et fidèle à votre image de marque."
                             path="/apropos"
                         />
                     </StaggerItem>
@@ -130,12 +130,12 @@ export const EngagementSection: React.FC = () => {
                     <StaggerItem className="h-full">
                         <ServiceCard
                             number="03"
-                            title="La Communication Chez webprint.ma"
+                            title="Une idée, trois étapes"
                             icon={<Award size={28} />}
                             color="pink"
-                            description="Votre campagne, votre salon ou votre point de vente devient notre sujet, avec le serieux d'une production suivie."
-                            subDescription="Nous vous conseillons sur le format, le support et la finition afin de respecter vos delais et votre budget."
-                            path="/savoir-faire"
+                            description="1. On échange sur votre projet. 2. On prépare les fichiers et vous validez le BAT. 3. On imprime, on façonne et on pose."
+                            subDescription="Salon, campagne, chantier ou point de vente : nous respectons vos délais et votre budget, avec un devis clair et rapide."
+                            path="/services"
                         />
                     </StaggerItem>
                 </Stagger>

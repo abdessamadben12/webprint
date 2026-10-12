@@ -10,14 +10,17 @@ export default function Welcome() {
     return (
         <>
             <SeoHead
-                title="webprint.ma | Imprimerie et impression publicitaire en ligne au Maroc"
-                description="webprint.ma réalise vos impressions offset et numériques, supports grand format, signalétique, PLV, stands et objets publicitaires au Maroc."
+                title="Imprimerie à Casablanca | Impression grand format et numérique - webprint.ma"
+                description="webprint.ma, votre imprimerie à Casablanca : impression numérique, impression grand format, bâches, adhésifs vinyle, habillage de véhicules et de vitrines. Devis gratuit et rapide."
                 keywords={[
                     'imprimerie Casablanca',
-                    'impression offset Maroc',
-                    'impression numérique Casablanca',
+                    'imprimerie à Casablanca',
+                    'impression bâche Casablanca',
+                    'impression vinyle Casablanca',
+                    'impression grand format Maroc',
+                    'impression numerique Casablanca',
                     'grand format',
-                    'PLV Casablanca',
+                    'habillage vehicule Casablanca',
                     'webprint.ma',
                 ]}
                 structuredData={{
@@ -25,9 +28,11 @@ export default function Welcome() {
                     '@type': 'LocalBusiness',
                     name: 'webprint.ma',
                     url: siteUrl,
-                    image: `${siteUrl}/images/bannieres/menuiserie-Bois2-final.webp`,
+                    image: `${siteUrl}/images/webprint/hero-print-studio.png`,
                     areaServed: ['Casablanca', 'Maroc'],
-                    serviceType: ['Impression offset', 'Impression numérique', 'Signalétique', 'PLV', 'Stands'],
+                    description: 'Imprimerie à Casablanca : impression numérique, grand format, bâches, adhésifs vinyle, habillage de véhicules et de vitrines.',
+                    telephone: '05 22 48 44 25',
+                    serviceType: ['Impression numérique', 'Impression grand format', 'Impression sur bâche', 'Adhésif vinyle', 'Habillage de véhicule', 'Vitrophanie', 'Design graphique'],
                 }}
             />
             <div>

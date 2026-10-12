@@ -1,11 +1,11 @@
 import { EASE, Reveal } from '@/components/motion';
 import ServiceImage from '@/components/pages/service-image';
-import { services, type ServiceDetail } from '@/data/services';
+import { services, serviceUrl, type ServiceDetail } from '@/data/services';
 import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const FEATURED_SLUGS = ['impression-offset', 'impression-numerique', 'grand-format', 'plv-industrie-publicitaire'];
+const FEATURED_SLUGS = ['impression-numerique', 'impression-grand-format', 'habillage-vehicule', 'industrie-publicitaire'];
 
 const featured = FEATURED_SLUGS.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is ServiceDetail => s !== undefined);
 
@@ -21,7 +21,7 @@ function MetierCard({ service, index }: { service: ServiceDetail; index: number 
             }}
         >
             <Link
-                href={`/services/${service.slug}`}
+                href={serviceUrl(service.slug)}
                 className="group hover:border-brand-blue/25 flex min-h-[7.5rem] items-stretch overflow-hidden rounded-lg border border-gray-100 bg-gray-50 transition-colors hover:bg-white sm:min-h-[8.5rem]"
             >
                 <span className="serif-display group-hover:text-brand-blue flex w-16 shrink-0 items-center justify-center text-3xl font-bold text-gray-300 transition-colors duration-300 sm:w-24 sm:text-4xl">
@@ -63,7 +63,7 @@ export default function MetiersSection() {
         <section className="border-t border-gray-100 bg-white py-20">
             <div className="mx-auto site-container px-4 sm:px-6 lg:px-8">
                 <Reveal className="space-y-3 text-center">
-                    <h3 className="site-heading text-alidade-navy serif-display font-bold">Impression, signaletique et communication visuelle</h3>
+                    <h2 className="site-heading text-alidade-navy serif-display font-bold">Tout pour faire bonne impression à Casablanca</h2>
                 </Reveal>
 
                 <div className="mt-12 space-y-6">
@@ -73,7 +73,7 @@ export default function MetiersSection() {
                 </div>
 
                 <Reveal className="mt-12 text-center" delay={0.15}>
-                    <Link href="/savoir-faire" className="brand-outline-button">
+                    <Link href="/services" className="brand-outline-button">
                         <span>Voir tous nos services</span>
                         <ArrowRight size={15} />
                     </Link>

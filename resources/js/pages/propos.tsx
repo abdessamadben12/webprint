@@ -7,8 +7,8 @@ export default function AproposPage() {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
-                title="À propos de webprint.ma | Imprimerie et communication visuelle"
-                description="Découvrez webprint.ma, son savoir-faire en impression, signalétique, PLV, stands et conception graphique au Maroc."
+                title="A propos de webprint.ma | Imprimerie et communication visuelle"
+                description="Decouvrez webprint.ma, son savoir-faire en impression numerique et grand format, habillage de vehicules et de vitrines et conception graphique au Maroc."
                 keywords={['imprimerie Casablanca', 'communication visuelle Maroc', 'impression publicitaire', 'webprint.ma Maroc']}
                 image="/images/qui-sommes-nous/atelier-finition.png"
             />

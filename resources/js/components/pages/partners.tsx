@@ -38,7 +38,7 @@ export default function PartnersSection() {
                 <Reveal className="space-y-3 text-center">
                     <h3 className="site-heading serif-display font-bold text-[#1a1c1f] uppercase">Ils nous font confiance</h3>
                     <p className="site-text mx-auto max-w-xl text-gray-500">
-                        Des entreprises et institutions de tous secteurs nous confient leurs projets d'impression, de signaletique et de communication
+                        Des entreprises et institutions de tous secteurs nous confient leurs projets d'impression, d'habillage et de communication
                         visuelle.
                     </p>
                 </Reveal>

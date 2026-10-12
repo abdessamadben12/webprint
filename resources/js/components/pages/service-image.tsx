@@ -14,6 +14,19 @@ export default function ServiceImage({ service, className }: { service: ServiceD
     }
 
     return (
-        <img src={service.imageUrl} alt={service.title} className={className} onError={() => setUnavailable(true)} loading="lazy" decoding="async" />
+        <img
+            src={service.imageUrl}
+            srcSet={
+                service.imageUrl.endsWith('.webp') ? `${service.imageUrl.replace('.webp', '-640.webp')} 640w, ${service.imageUrl} 1280w` : undefined
+            }
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            alt={service.imageAlt}
+            width={1280}
+            height={960}
+            className={className}
+            onError={() => setUnavailable(true)}
+            loading="lazy"
+            decoding="async"
+        />
     );
 }

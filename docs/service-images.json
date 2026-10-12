@@ -1,0 +1,31 @@
+{
+    "generator": "imagegen (outil intégré)",
+    "date": "2026-10-05",
+    "assets": [
+        {
+            "file": "public/images/services/impression-vinyle-casablanca.webp",
+            "mobile": "public/images/services/impression-vinyle-casablanca-640.webp",
+            "prompt": "Use case: product-mockup. Asset type: illustrative service photography for a French printing company website. Primary request: Close detailed view of a wide-format printer producing self-adhesive vinyl with tasteful abstract colorful geometric graphics, visible glossy printed vinyl curling forward and white release liner, clean professional printing workshop. Style: premium photorealistic commercial photography, natural daylight, realistic materials. Composition: landscape 4:3, subject readable in a small card and central crop, single coherent scene. Constraints: no text, no lettering, no logos, no watermarks, no collage, no claims of an actual customer project."
+        },
+        {
+            "file": "public/images/services/habillage-vehicule-casablanca.webp",
+            "mobile": "public/images/services/habillage-vehicule-casablanca-640.webp",
+            "prompt": "Use case: product-mockup. Asset type: illustrative service photography for a French printing company website. Primary request: A complete unbranded white commercial panel van with professionally applied blue and orange abstract vinyl wrap on its side panels, parked outside a contemporary commercial building, three-quarter side view, all wheels physically correct. Style: premium photorealistic commercial photography, natural daylight, realistic materials. Composition: landscape 4:3, subject readable in a small card and central crop, single coherent scene. Constraints: no text, no lettering, no logos, no watermarks, no collage, no claims of an actual customer project."
+        },
+        {
+            "file": "public/images/services/palissade-chantier-casablanca.webp",
+            "mobile": "public/images/services/palissade-chantier-casablanca-640.webp",
+            "prompt": "Use case: product-mockup. Asset type: illustrative service photography for a French printing company website. Primary request: Long continuous solid construction site hoarding panels professionally wrapped with printed architectural imagery and abstract graphics, pedestrian sidewalk in foreground, unfinished building visible behind, clearly showcase printed palissade cladding, no hazard signage as subject. Style: premium photorealistic commercial photography, natural daylight, realistic materials. Composition: landscape 4:3, subject readable in a small card and central crop, single coherent scene. Constraints: no text, no lettering, no logos, no watermarks, no collage, no claims of an actual customer project."
+        },
+        {
+            "file": "public/images/services/habillage-vitrine-casablanca.webp",
+            "mobile": "public/images/services/habillage-vitrine-casablanca-640.webp",
+            "prompt": "Use case: product-mockup. Asset type: illustrative service photography for a French printing company website. Primary request: Contemporary shop glass facade with professionally applied printed botanical vinyl window graphics and subtle frosted film, visible glass door and warm interior through clear glass sections, three-quarter street-level architectural view. Style: premium photorealistic commercial photography, natural daylight, realistic materials. Composition: landscape 4:3, subject readable in a small card and central crop, single coherent scene. Constraints: no text, no lettering, no logos, no watermarks, no collage, no claims of an actual customer project."
+        },
+        {
+            "file": "public/images/services/impression-bache-casablanca.webp",
+            "mobile": "public/images/services/impression-bache-casablanca-640.webp",
+            "prompt": "Use case: product-mockup. Asset type: illustrative service photography for a French printing company website. Primary request: Large rectangular professionally printed PVC advertising banner mounted taut on an outdoor metal frame, visible reinforced hems and metal eyelets, tasteful colorful abstract graphics, close enough to show woven banner material, contemporary exterior. Style: premium photorealistic commercial photography, natural daylight, realistic materials. Composition: landscape 4:3, subject readable in a small card and central crop, single coherent scene. Constraints: no text, no lettering, no logos, no watermarks, no collage, no claims of an actual customer project."
+        }
+    ]
+}

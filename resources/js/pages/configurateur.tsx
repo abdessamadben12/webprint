@@ -14,9 +14,9 @@ export default function ConfigurateurPage() {
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
             <SeoHead
-                title="Configurateur Alidade | Estimez votre projet de menuiserie"
-                description="Configurez votre cuisine, dressing ou habillage mural sur mesure et obtenez une estimation immédiate avant votre demande de devis."
-                keywords={['estimation menuiserie Casablanca', 'configurateur cuisine sur mesure', 'prix dressing Maroc']}
+                title="Configurateur webprint.ma | Estimez votre projet d'impression"
+                description="Configurez vos supports imprimes, formats, quantites et finitions avant de demander un devis personnalise chez webprint.ma."
+                keywords={['configurateur impression Casablanca', 'estimation impression Maroc', 'devis imprimerie en ligne']}
             />
             <Navbar />
             <main className="flex-grow">

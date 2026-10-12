@@ -1,6 +1,6 @@
 import { Reveal, Stagger, StaggerItem } from '@/components/motion';
 import ServiceImage from '@/components/pages/service-image';
-import { services } from '@/data/services';
+import { services, serviceUrl } from '@/data/services';
 import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileSignature, PackageCheck, Printer, Shapes } from 'lucide-react';
@@ -38,15 +38,15 @@ export default function Services({ onQuoteWithService }: ServicesGridProps) {
 
         <StaggerItem>
             <h1 className="site-title serif-display font-bold">
-                Imprimerie, stand et industrie publicitaire
+                Impression, habillage et industrie publicitaire
             </h1>
         </StaggerItem>
 
         <StaggerItem>
             <p className="site-text-lead mx-auto max-w-2xl text-white/80">
-                webprint.ma accompagne les entreprises au Maroc avec des solutions
-                d'impression, de signalétique, de PLV, de stands et de conception
-                graphique adaptées à chaque budget.
+                webprint.ma accompagne les entreprises au Maroc : impression numérique et
+                grand format, habillage de véhicules et de vitrines, balisage de chantier,
+                vinyle, bâches et design graphique, adaptés à chaque budget.
             </p>
         </StaggerItem>
     </Stagger>
@@ -73,7 +73,7 @@ export default function Services({ onQuoteWithService }: ServicesGridProps) {
     >
         <StaggerItem className="px-2 text-center">
             <div className="serif-display text-alidade-gold text-3xl font-bold sm:text-4xl">
-                7
+                {services.length}
             </div>
             <div className="mt-1 text-[10px] tracking-[0.2em] text-white/60 uppercase sm:text-xs">
                 Familles de services
@@ -113,7 +113,7 @@ export default function Services({ onQuoteWithService }: ServicesGridProps) {
                         return (
                             <StaggerItem key={service.slug} className="h-full">
                                 <Link
-                                    href={route('services.show', service.slug)}
+                                    href={serviceUrl(service.slug)}
                                     className="group bg-alidade-navy relative flex h-full flex-col rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl"
                                 >
                                     <div

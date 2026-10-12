@@ -1,4 +1,5 @@
 import { EASE, Reveal } from '@/components/motion';
+import { services } from '@/data/services';
 import { site } from '@/data/site';
 import { useForm } from '@inertiajs/react';
 import { motion } from 'framer-motion';
@@ -78,7 +79,7 @@ const Contact: React.FC = () => {
         </h1>
 
         <p className="site-text-lead mx-auto max-w-xl text-center text-white/90">
-            Une impression, une enseigne, un stand ou une
+            Une impression, une bâche, un covering ou une
             <br className="hidden sm:block" />
             campagne à préparer ?
             <br />
@@ -171,13 +172,11 @@ const Contact: React.FC = () => {
                                     className="focus:ring-alidade-gold/20 w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 p-4 pr-12 text-gray-600 transition focus:ring-2 focus:outline-none"
                                 >
                                     <option value="">Sujet</option>
-                                    <option value="Impression offset">Impression offset</option>
-                                    <option value="Impression numérique">Impression numérique</option>
-                                    <option value="Grand format et signalétique">Grand format et signalétique</option>
-                                    <option value="PLV et industrie publicitaire">PLV et industrie publicitaire</option>
-                                    <option value="Stand d'exposition">Stand d'exposition</option>
-                                    <option value="Design graphique">Design graphique</option>
-                                    <option value="Publicité par l'objet">Publicité par l'objet</option>
+                                    {services.map((service) => (
+                                        <option key={service.slug} value={service.title}>
+                                            {service.title}
+                                        </option>
+                                    ))}
                                     <option value="Autre">Autre</option>
                                 </select>
                                 <ChevronDown className="pointer-events-none absolute top-4 right-4 h-5 w-5 text-gray-400" />
