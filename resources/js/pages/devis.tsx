@@ -2,7 +2,7 @@ import Footer from '@/components/pages/Footer';
 import MyQuotes from '@/components/pages/MyQuotes';
 import Navbar from '@/components/pages/navbar';
 import QuoteRequest from '@/components/pages/QuoteRequest';
-import SeoHead from '@/components/seo-head';
+import SeoHead, { pageSeo } from '@/components/seo-head';
 import { router } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
@@ -34,11 +34,7 @@ export default function DevisPage() {
 
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
-            <SeoHead
-                title="Demande de devis webprint.ma | Impression et communication visuelle"
-                description="Decrivez votre projet d'impression, de baches, d'habillage de vehicule ou de vitrine et recevez un devis gratuit a Casablanca."
-                keywords={['devis impression Casablanca', 'impression numerique Maroc', 'devis grand format', 'webprint.ma devis']}
-            />
+            <SeoHead {...pageSeo.quote} />
             <Navbar />
             <main className="flex-grow">
                 {showMyQuotes ? (

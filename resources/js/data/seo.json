@@ -1,0 +1,184 @@
+{
+    "_comment": "Source unique des titres, descriptions et mots-clés SEO. Lu par React (SeoHead) et par Laravel (balises rendues côté serveur dans app.blade.php).",
+    "siteName": "webprint.ma",
+    "defaultImage": "/images/webprint/hero-print-studio.png",
+    "defaultKeywords": [
+        "imprimerie Casablanca",
+        "imprimerie à Casablanca",
+        "impression Maroc",
+        "impression numérique Casablanca",
+        "impression grand format Casablanca",
+        "habillage véhicule Casablanca",
+        "vitrophanie Casablanca",
+        "webprint.ma"
+    ],
+    "pages": {
+        "home": {
+            "title": "Imprimerie à Casablanca | Impression grand format et numérique - webprint.ma",
+            "description": "webprint.ma, votre imprimerie à Casablanca : impression numérique, impression grand format, bâches, adhésifs vinyle, habillage de véhicules et de vitrines. Devis gratuit et rapide.",
+            "keywords": [
+                "imprimerie Casablanca",
+                "imprimerie à Casablanca",
+                "impression bâche Casablanca",
+                "impression vinyle Casablanca",
+                "impression grand format Maroc",
+                "impression numérique Casablanca",
+                "habillage véhicule Casablanca"
+            ]
+        },
+        "apropos": {
+            "title": "À propos de webprint.ma | Votre imprimerie à Casablanca",
+            "description": "Découvrez webprint.ma, imprimerie à Casablanca : savoir-faire en impression numérique et grand format, habillage de véhicules et de vitrines et design graphique.",
+            "keywords": [
+                "imprimerie Casablanca",
+                "atelier impression Casablanca",
+                "communication visuelle Maroc",
+                "impression publicitaire Casablanca"
+            ],
+            "image": "/images/qui-sommes-nous/atelier-finition.png"
+        },
+        "services": {
+            "title": "Nos services d'impression à Casablanca | webprint.ma",
+            "description": "Impression numérique et grand format, industrie publicitaire, habillage de véhicule, palissades de chantier, vinyle, bâches, vitrines et design graphique à Casablanca.",
+            "keywords": [
+                "imprimerie Casablanca",
+                "impression numérique Maroc",
+                "impression grand format Casablanca",
+                "habillage véhicule Casablanca",
+                "vitrophanie Casablanca",
+                "impression bâche Casablanca"
+            ]
+        },
+        "quote": {
+            "title": "Devis impression gratuit à Casablanca | webprint.ma",
+            "description": "Décrivez votre projet d'impression, de bâches, d'habillage de véhicule ou de vitrine et recevez rapidement un devis gratuit de votre imprimerie à Casablanca.",
+            "keywords": [
+                "devis impression Casablanca",
+                "devis imprimerie Casablanca",
+                "devis grand format Maroc",
+                "devis bâche Casablanca"
+            ]
+        },
+        "contact": {
+            "title": "Contact webprint.ma | Imprimerie à Casablanca, Rond-point d'Europe",
+            "description": "Contactez webprint.ma, imprimerie à Casablanca (Rond-point d'Europe) : impression numérique et grand format, bâches, habillage de véhicules et de vitrines. Tél. 05 22 48 44 25.",
+            "keywords": [
+                "contact imprimerie Casablanca",
+                "imprimerie Casablanca adresse",
+                "devis impression Casablanca",
+                "webprint.ma contact"
+            ]
+        },
+        "configurateur": {
+            "title": "Configurateur d'impression en ligne | webprint.ma Casablanca",
+            "description": "Configurez vos supports imprimés (format, quantité, finitions) et estimez votre projet avant de demander un devis personnalisé à votre imprimerie à Casablanca.",
+            "keywords": [
+                "configurateur impression Casablanca",
+                "estimation impression Maroc",
+                "imprimerie en ligne Casablanca"
+            ]
+        },
+        "articles.index": {
+            "title": "Articles et conseils en impression | webprint.ma",
+            "description": "Conseils, guides et actualités de webprint.ma, imprimerie à Casablanca : impression numérique, grand format, bâches, habillage de véhicule et communication visuelle.",
+            "keywords": [
+                "blog imprimerie Casablanca",
+                "conseils impression",
+                "actualités impression Maroc",
+                "guide impression grand format"
+            ]
+        }
+    },
+    "services": {
+        "impression-numerique": {
+            "title": "Impression numérique à Casablanca | Flyers, cartes, brochures - webprint.ma",
+            "description": "Imprimerie numérique à Casablanca : cartes de visite, flyers, brochures et documents personnalisés en haute définition. Délais express et devis gratuit.",
+            "keywords": [
+                "impression numérique Casablanca",
+                "imprimerie numérique Maroc",
+                "impression flyers Casablanca",
+                "cartes de visite Casablanca"
+            ]
+        },
+        "impression-grand-format": {
+            "title": "Impression grand format à Casablanca | Affiches, roll-up, panneaux - webprint.ma",
+            "description": "Impression grand format au Maroc : affiches, roll-up, kakémonos, panneaux rigides et visuels pour l'intérieur comme l'extérieur. Fabrication et pose à Casablanca.",
+            "keywords": [
+                "impression grand format Casablanca",
+                "roll-up Maroc",
+                "kakémono Casablanca",
+                "panneau publicitaire Maroc"
+            ]
+        },
+        "industrie-publicitaire": {
+            "title": "Industrie publicitaire à Casablanca | Supports de campagne - webprint.ma",
+            "description": "Production des supports de vos campagnes publicitaires à Casablanca : affichage, visuels de salons et d'événements, roll-up et kits multi-supports. Impression et pose.",
+            "keywords": [
+                "industrie publicitaire Casablanca",
+                "affichage publicitaire Maroc",
+                "impression campagne publicitaire",
+                "visuels salon Casablanca"
+            ]
+        },
+        "habillage-vehicule": {
+            "title": "Habillage de véhicule à Casablanca | Covering et marquage - webprint.ma",
+            "description": "Covering, marquage et habillage de véhicules et flottes d'entreprise à Casablanca. Films vinyle haut de gamme, pose professionnelle, devis gratuit.",
+            "keywords": [
+                "habillage véhicule Casablanca",
+                "covering voiture Maroc",
+                "marquage véhicule Casablanca",
+                "flocage utilitaire Maroc"
+            ]
+        },
+        "balisage-chantier": {
+            "title": "Palissades de chantier à Casablanca | webprint.ma",
+            "description": "Panneaux de chantier, palissades publicitaires, bâches de clôture et panneaux de sécurité. Fabrication et pose à Casablanca et partout au Maroc.",
+            "keywords": [
+                "balisage chantier Casablanca",
+                "panneau de chantier Maroc",
+                "palissade publicitaire",
+                "bâche de chantier Maroc"
+            ]
+        },
+        "impression-vinyle": {
+            "title": "Impression vinyle et stickers à Casablanca | webprint.ma",
+            "description": "Impression sur vinyle adhésif à Casablanca : stickers, étiquettes, lettrages découpés, adhésifs muraux et de sol. Intérieur et extérieur, devis gratuit.",
+            "keywords": [
+                "impression vinyle Casablanca",
+                "stickers personnalisés Maroc",
+                "autocollant Casablanca",
+                "lettrage adhésif"
+            ]
+        },
+        "design-graphique": {
+            "title": "Design graphique à Casablanca | Logo, identité visuelle - webprint.ma",
+            "description": "Studio de design graphique à Casablanca : logo, identité visuelle, charte graphique, maquettes print et visuels web. Fichiers prêts à imprimer.",
+            "keywords": [
+                "design graphique Casablanca",
+                "création logo Maroc",
+                "identité visuelle Casablanca",
+                "graphiste Casablanca"
+            ]
+        },
+        "impression-baches": {
+            "title": "Impression de bâches publicitaires à Casablanca | webprint.ma",
+            "description": "Impression de bâches et banderoles publicitaires à Casablanca : toutes dimensions, œillets et ourlets inclus, bâches micro-perforées. Devis gratuit.",
+            "keywords": [
+                "impression bâche Casablanca",
+                "bâche publicitaire Maroc",
+                "banderole Casablanca",
+                "bâche micro-perforée"
+            ]
+        },
+        "impression-vitrine": {
+            "title": "Habillage de vitrine à Casablanca | Vitrophanie - webprint.ma",
+            "description": "Habillage de vitrine à Casablanca : vitrophanie, adhésifs microperforés, films dépolis et lettrage découpé. Conception et pose professionnelle.",
+            "keywords": [
+                "vitrophanie Casablanca",
+                "habillage vitrine Maroc",
+                "adhésif vitrine Casablanca",
+                "film dépoli Casablanca"
+            ]
+        }
+    }
+}

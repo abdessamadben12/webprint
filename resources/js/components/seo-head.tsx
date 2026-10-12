@@ -1,3 +1,4 @@
+import seo from '@/data/seo.json';
 import { site } from '@/data/site';
 import { type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
@@ -19,18 +20,12 @@ interface SeoHeadProps {
     canonical?: string;
 }
 
-const siteName = 'webprint.ma';
-const defaultImage = '/images/webprint/hero-print-studio.png';
-const defaultKeywords = [
-    'imprimerie Casablanca',
-    'impression Maroc',
-    'impression numerique Casablanca',
-    'impression grand format Maroc',
-    'habillage véhicule Casablanca',
-    'vitrophanie Casablanca',
-    'grand format Casablanca',
-    'webprint.ma',
-];
+const siteName = seo.siteName;
+const defaultImage = seo.defaultImage;
+const defaultKeywords = seo.defaultKeywords;
+
+/** Titre, description et mots-cles d'une page, definis dans data/seo.json (aussi lu par Laravel). */
+export const pageSeo = seo.pages;
 
 export function absoluteUrl(path: string, baseUrl: string) {
     return new URL(path.replace(/^\//, ''), baseUrl).toString();

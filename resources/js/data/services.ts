@@ -1,3 +1,4 @@
+import seo from '@/data/seo.json';
 import { Brush, Car, Construction, Flag, Layers, type LucideIcon, MonitorUp, Scissors, Store, Tent } from 'lucide-react';
 
 // Source unique des pages services.
@@ -83,10 +84,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.numerique, caption: 'Calendriers et documents couleur' },
             { src: serviceImages.etiquettes, caption: 'Étiquettes et autocollants' },
         ],
-        metaTitle: 'Impression numérique à Casablanca | Flyers, cartes, brochures - webprint.ma',
-        metaDescription:
-            'Imprimerie numérique à Casablanca : cartes de visite, flyers, brochures et documents personnalisés en haute définition. Délais express et devis gratuit.',
-        keywords: ['impression numérique Casablanca', 'imprimerie numérique Maroc', 'impression flyers Casablanca', 'cartes de visite Casablanca'],
+        metaTitle: seo.services['impression-numerique'].title,
+        metaDescription: seo.services['impression-numerique'].description,
+        keywords: seo.services['impression-numerique'].keywords,
     },
     {
         slug: 'impression-grand-format',
@@ -120,10 +120,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.grandFormat, caption: 'Impression grand format' },
             { src: serviceImages.vehicule, caption: 'Visuels haute définition' },
         ],
-        metaTitle: 'Impression grand format à Casablanca | Affiches, roll-up, panneaux - webprint.ma',
-        metaDescription:
-            "Impression grand format au Maroc : affiches, roll-up, kakémonos, panneaux rigides et visuels pour l'intérieur comme l'extérieur. Fabrication et pose à Casablanca.",
-        keywords: ['impression grand format Casablanca', 'roll-up Maroc', 'kakémono Casablanca', 'panneau publicitaire Maroc'],
+        metaTitle: seo.services['impression-grand-format'].title,
+        metaDescription: seo.services['impression-grand-format'].description,
+        keywords: seo.services['impression-grand-format'].keywords,
     },
     {
         slug: 'industrie-publicitaire',
@@ -157,15 +156,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.publicitaire, caption: 'Habillage de salon' },
             { src: serviceImages.encres, caption: 'Production des visuels' },
         ],
-        metaTitle: 'Industrie publicitaire à Casablanca | Supports de campagne - webprint.ma',
-        metaDescription:
-            "Production des supports de vos campagnes publicitaires à Casablanca : affichage, visuels de salons et d'événements, roll-up et kits multi-supports. Impression et pose.",
-        keywords: [
-            'industrie publicitaire Casablanca',
-            'affichage publicitaire Maroc',
-            'impression campagne publicitaire',
-            'visuels salon Casablanca',
-        ],
+        metaTitle: seo.services['industrie-publicitaire'].title,
+        metaDescription: seo.services['industrie-publicitaire'].description,
+        keywords: seo.services['industrie-publicitaire'].keywords,
     },
     {
         slug: 'habillage-vehicule',
@@ -199,10 +192,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.vehicule, caption: 'Exemple de covering sur utilitaire' },
             { src: serviceImages.vinyle, caption: 'Vinyle adhésif' },
         ],
-        metaTitle: 'Habillage de véhicule à Casablanca | Covering et marquage - webprint.ma',
-        metaDescription:
-            "Covering, marquage et habillage de véhicules et flottes d'entreprise à Casablanca. Films vinyle haut de gamme, pose professionnelle, devis gratuit.",
-        keywords: ['habillage véhicule Casablanca', 'covering voiture Maroc', 'marquage véhicule Casablanca', 'flocage utilitaire Maroc'],
+        metaTitle: seo.services['habillage-vehicule'].title,
+        metaDescription: seo.services['habillage-vehicule'].description,
+        keywords: seo.services['habillage-vehicule'].keywords,
     },
     {
         slug: 'balisage-chantier',
@@ -236,10 +228,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.chantier, caption: 'Exemple de palissade publicitaire imprimée' },
             { src: serviceImages.grandFormat, caption: 'Panneaux grand format' },
         ],
-        metaTitle: 'Palissades de chantier à Casablanca | webprint.ma',
-        metaDescription:
-            'Panneaux de chantier, palissades publicitaires, bâches de clôture et panneaux de sécurité. Fabrication et pose à Casablanca et partout au Maroc.',
-        keywords: ['balisage chantier Casablanca', 'panneau de chantier Maroc', 'palissade publicitaire', 'bâche de chantier Maroc'],
+        metaTitle: seo.services['balisage-chantier'].title,
+        metaDescription: seo.services['balisage-chantier'].description,
+        keywords: seo.services['balisage-chantier'].keywords,
     },
     {
         slug: 'impression-vinyle',
@@ -273,10 +264,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.vinyle, caption: 'Vinyle adhésif imprimé' },
             { src: serviceImages.etiquettes, caption: 'Étiquettes et stickers' },
         ],
-        metaTitle: 'Impression vinyle et stickers à Casablanca | webprint.ma',
-        metaDescription:
-            'Impression sur vinyle adhésif à Casablanca : stickers, étiquettes, lettrages découpés, adhésifs muraux et de sol. Intérieur et extérieur, devis gratuit.',
-        keywords: ['impression vinyle Casablanca', 'stickers personnalisés Maroc', 'autocollant Casablanca', 'lettrage adhésif'],
+        metaTitle: seo.services['impression-vinyle'].title,
+        metaDescription: seo.services['impression-vinyle'].description,
+        keywords: seo.services['impression-vinyle'].keywords,
     },
     {
         slug: 'design-graphique',
@@ -310,10 +300,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.design, caption: 'Conception graphique' },
             { src: serviceImages.numerique, caption: 'Supports imprimés' },
         ],
-        metaTitle: 'Design graphique à Casablanca | Logo, identité visuelle - webprint.ma',
-        metaDescription:
-            'Studio de design graphique à Casablanca : logo, identité visuelle, charte graphique, maquettes print et visuels web. Fichiers prêts à imprimer.',
-        keywords: ['design graphique Casablanca', 'création logo Maroc', 'identité visuelle Casablanca', 'graphiste Casablanca'],
+        metaTitle: seo.services['design-graphique'].title,
+        metaDescription: seo.services['design-graphique'].description,
+        keywords: seo.services['design-graphique'].keywords,
     },
     {
         slug: 'impression-baches',
@@ -347,10 +336,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.baches, caption: 'Bâche publicitaire' },
             { src: serviceImages.rotative, caption: 'Production en rouleaux' },
         ],
-        metaTitle: 'Impression de bâches publicitaires à Casablanca | webprint.ma',
-        metaDescription:
-            'Impression de bâches et banderoles publicitaires à Casablanca : toutes dimensions, œillets et ourlets inclus, bâches micro-perforées. Devis gratuit.',
-        keywords: ['impression bâche Casablanca', 'bâche publicitaire Maroc', 'banderole Casablanca', 'bâche micro-perforée'],
+        metaTitle: seo.services['impression-baches'].title,
+        metaDescription: seo.services['impression-baches'].description,
+        keywords: seo.services['impression-baches'].keywords,
     },
     {
         slug: 'impression-vitrine',
@@ -384,10 +372,9 @@ export const services: ServiceDetail[] = [
             { src: serviceImages.vitrine, caption: 'Exemple de vitrophanie et de film dépoli' },
             { src: serviceImages.vinyle, caption: 'Adhésifs pour vitrine' },
         ],
-        metaTitle: 'Habillage de vitrine à Casablanca | Vitrophanie - webprint.ma',
-        metaDescription:
-            'Habillage de vitrine à Casablanca : vitrophanie, adhésifs microperforés, films dépolis et lettrage découpé. Conception et pose professionnelle.',
-        keywords: ['vitrophanie Casablanca', 'habillage vitrine Maroc', 'adhésif vitrine Casablanca', 'film dépoli Casablanca'],
+        metaTitle: seo.services['impression-vitrine'].title,
+        metaDescription: seo.services['impression-vitrine'].description,
+        keywords: seo.services['impression-vitrine'].keywords,
     },
 ];
 

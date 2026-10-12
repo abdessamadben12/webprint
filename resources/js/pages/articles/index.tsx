@@ -2,7 +2,7 @@ import ArticleCard from '@/components/articles/article-card';
 import { Reveal, Stagger, StaggerItem } from '@/components/motion';
 import Footer from '@/components/pages/Footer';
 import Navbar from '@/components/pages/navbar';
-import SeoHead from '@/components/seo-head';
+import SeoHead, { pageSeo } from '@/components/seo-head';
 import { paginationLabel, type ArticleSummary, type Paginated } from '@/types/article';
 import { Link } from '@inertiajs/react';
 import { ArrowUpRight, Newspaper } from 'lucide-react';
@@ -13,9 +13,8 @@ export default function ArticlesIndex({ articles }: { articles: Paginated<Articl
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#FDFCFA]">
             <SeoHead
-                title={page > 1 ? `Articles et conseils impression - page ${page} | webprint.ma` : 'Articles et conseils en impression | webprint.ma'}
-                description="Conseils, guides et actualités de webprint.ma sur l'impression numérique, le grand format, les bâches, l'habillage de véhicule et la communication visuelle au Maroc."
-                keywords={['blog imprimerie Casablanca', 'conseils impression', 'actualités impression Maroc', 'guide impression grand format']}
+                {...pageSeo['articles.index']}
+                title={page > 1 ? `Articles et conseils impression - page ${page} | webprint.ma` : pageSeo['articles.index'].title}
             />
             <Navbar />
 

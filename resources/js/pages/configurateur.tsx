@@ -1,7 +1,7 @@
 import Configurator from '@/components/pages/Configurator';
 import Footer from '@/components/pages/Footer';
 import Navbar from '@/components/pages/navbar';
-import SeoHead from '@/components/seo-head';
+import SeoHead, { pageSeo } from '@/components/seo-head';
 import { router } from '@inertiajs/react';
 
 export default function ConfigurateurPage() {
@@ -13,11 +13,7 @@ export default function ConfigurateurPage() {
 
     return (
         <div className="text-alidade-navy flex min-h-screen flex-col bg-[#fafafa]">
-            <SeoHead
-                title="Configurateur webprint.ma | Estimez votre projet d'impression"
-                description="Configurez vos supports imprimes, formats, quantites et finitions avant de demander un devis personnalise chez webprint.ma."
-                keywords={['configurateur impression Casablanca', 'estimation impression Maroc', 'devis imprimerie en ligne']}
-            />
+            <SeoHead {...pageSeo.configurateur} />
             <Navbar />
             <main className="flex-grow">
                 <Configurator onSendToQuote={handleSendToQuote} />

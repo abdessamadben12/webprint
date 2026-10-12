@@ -36,10 +36,20 @@ class ArticleController extends Controller
             ->limit(3)
             ->get(['id', 'title', 'slug', 'excerpt', 'featured_image', 'published_at']);
 
+        $text = trim(preg_replace('/\s+/', ' ', strip_tags((string) $article->content)));
+
         return Inertia::render('articles/show', [
             'article' => $article,
             'related' => $related,
             'isPreview' => $isPreview,
-        ]);
+        ])->withViewData(['seo' => [
+            'title' => $article->meta_title ?: $article->title.' | webprint.ma',
+            'description' => $article->meta_description ?: ($article->excerpt ?: mb_substr($text, 0, 160)),
+            'keywords' => array_map('trim', array_filter([$article->focus_keyword, ...explode(',', (string) $article->meta_keywords)])),
+            'image' => $article->featured_image_url,
+            'canonical' => $article->canonical_url,
+            'type' => 'article',
+            'noindex' => $isPreview || $article->noindex,
+        ]]);
     }
 }

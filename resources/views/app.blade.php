@@ -12,7 +12,28 @@
         <meta name="format-detection" content="telephone=yes">
         <meta name="referrer" content="strict-origin-when-cross-origin">
 
-        <title inertia>{{ config('app.name', 'webprint.ma') }}</title>
+        @php($seo = \App\Support\Seo::forRequest(request(), $seo ?? null))
+        @if ($seo)
+            @php($seoTitle = str_contains($seo['title'], $seo['siteName']) ? $seo['title'] : $seo['title'].' | '.$seo['siteName'])
+            <title inertia>{{ $seoTitle }}</title>
+            <meta inertia name="description" content="{{ $seo['description'] }}">
+            <meta inertia name="keywords" content="{{ $seo['keywords'] }}">
+            <meta inertia name="robots" content="{{ $seo['noindex'] ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }}">
+            <link inertia rel="canonical" href="{{ $seo['canonical'] }}">
+            <meta inertia property="og:locale" content="fr_FR">
+            <meta inertia property="og:type" content="{{ $seo['type'] }}">
+            <meta inertia property="og:site_name" content="{{ $seo['siteName'] }}">
+            <meta inertia property="og:title" content="{{ $seo['title'] }}">
+            <meta inertia property="og:description" content="{{ $seo['description'] }}">
+            <meta inertia property="og:url" content="{{ $seo['canonical'] }}">
+            <meta inertia property="og:image" content="{{ $seo['image'] }}">
+            <meta inertia name="twitter:card" content="summary_large_image">
+            <meta inertia name="twitter:title" content="{{ $seo['title'] }}">
+            <meta inertia name="twitter:description" content="{{ $seo['description'] }}">
+            <meta inertia name="twitter:image" content="{{ $seo['image'] }}">
+        @else
+            <title inertia>{{ config('app.name', 'webprint.ma') }}</title>
+        @endif
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

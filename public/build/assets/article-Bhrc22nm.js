@@ -1,0 +1,1 @@
+function i(n,t=!1){return n?new Date(n).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric",...t?{hour:"2-digit",minute:"2-digit"}:{}}):"-"}function r(n){return n.includes("Previous")||n.includes("&laquo;")?"‹ Précédent":n.includes("Next")||n.includes("&raquo;")?"Suivant ›":n}export{i as f,r as p};
