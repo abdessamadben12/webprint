@@ -19,6 +19,12 @@ class Seo
         return self::$data ??= json_decode(file_get_contents(resource_path('js/data/seo.json')), true);
     }
 
+    /** URL absolue d'un chemin du site (utilisee par le sitemap). */
+    public static function url(string $path = '/'): string
+    {
+        return rtrim(self::data()['siteUrl'], '/').'/'.ltrim($path, '/');
+    }
+
     /**
      * @param  array<string, mixed>|null  $override  Valeurs fournies par un controleur (ex. un article).
      * @return array<string, mixed>|null
@@ -36,7 +42,8 @@ class Seo
             return null;
         }
 
-        $baseUrl = rtrim($request->getSchemeAndHttpHost(), '/');
+        // Adresse officielle unique (sans www) : evite que www et sans-www soient indexes comme deux sites.
+        $baseUrl = rtrim($data['siteUrl'], '/');
         $image = $page['image']
             ?? (str_starts_with($routeName, 'service.') ? (ServicePages::IMAGES[substr($routeName, 8)] ?? null) : null)
             ?? $data['defaultImage'];

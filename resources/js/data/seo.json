@@ -1,6 +1,7 @@
 {
     "_comment": "Source unique des titres, descriptions et mots-clés SEO. Lu par React (SeoHead) et par Laravel (balises rendues côté serveur dans app.blade.php).",
     "siteName": "webprint.ma",
+    "siteUrl": "https://webprint.ma",
     "defaultImage": "/images/webprint/hero-print-studio.png",
     "defaultKeywords": [
         "imprimerie Casablanca",
@@ -134,7 +135,8 @@
             "title": "Palissades de chantier à Casablanca | webprint.ma",
             "description": "Panneaux de chantier, palissades publicitaires, bâches de clôture et panneaux de sécurité. Fabrication et pose à Casablanca et partout au Maroc.",
             "keywords": [
-                "balisage chantier Casablanca",
+                "palissade chantier Casablanca",
+                "palissade de chantier Maroc",
                 "panneau de chantier Maroc",
                 "palissade publicitaire",
                 "bâche de chantier Maroc"

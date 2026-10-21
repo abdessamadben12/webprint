@@ -198,12 +198,12 @@ export const services: ServiceDetail[] = [
     },
     {
         slug: 'balisage-chantier',
-        title: 'Palissades et balisage de chantier',
+        title: 'Palissades de chantier',
         tagline: 'Sécurité et image sur vos chantiers',
         description:
             'Palissades publicitaires, panneaux de chantier, bâches de clôture et panneaux de sécurité pour informer, sécuriser et valoriser vos projets de construction.',
         intro: [
-            "Un chantier bien balisé protège les riverains, informe le public et valorise le promoteur. Nous fabriquons l'ensemble des supports de balisage de vos chantiers : panneaux réglementaires, palissades habillées, bâches de clôture et panneaux de sécurité.",
+            "Une palissade de chantier bien habillée protège les riverains, informe le public et valorise le promoteur. Nous fabriquons l'ensemble des supports de vos chantiers : palissades publicitaires, panneaux réglementaires, bâches de clôture et panneaux de sécurité.",
             'Nos supports sont conçus pour résister aux intempéries, au vent et au soleil pendant toute la durée des travaux. Nous assurons la fabrication et la pose, à Casablanca et dans tout le Maroc.',
         ],
         imageUrl: serviceImages.chantier,

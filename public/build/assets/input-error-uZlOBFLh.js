@@ -1,0 +1,1 @@
+import{jsxRuntimeExports as n}from"./react-CGgQk4VG.js";import{cn as o}from"./button-CMxruL4S.js";function p({message:r,className:t="",...e}){return r?n.jsx("p",{...e,className:o("text-sm text-red-600 dark:text-red-400",t),children:r}):null}export{p as InputError};

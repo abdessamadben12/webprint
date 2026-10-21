@@ -2,6 +2,16 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
+
+        <!-- Google tag (gtag.js) - Google Ads -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11394382189"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-11394382189');
+        </script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <meta name="theme-color" content="#0d1a2d">

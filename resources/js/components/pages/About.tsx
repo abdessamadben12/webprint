@@ -15,8 +15,8 @@ export default function About() {
             icon: Brush,
         },
         {
-            title: 'Habillage et balisage',
-            description: 'Vehicules, vitrines, baches, adhesifs vinyle et balisage de chantier pour une visibilite maximale.',
+            title: 'Habillage et palissades',
+            description: 'Vehicules, vitrines, baches, adhesifs vinyle et palissades de chantier pour une visibilite maximale.',
             icon: Flag,
         },
     ];

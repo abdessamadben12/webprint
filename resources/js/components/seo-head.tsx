@@ -57,8 +57,9 @@ export default function SeoHead({
     modifiedTime,
     canonical,
 }: SeoHeadProps) {
-    const { url, props } = usePage<SharedData>();
-    const baseUrl = props.appUrl.endsWith('/') ? props.appUrl : `${props.appUrl}/`;
+    const { url } = usePage<SharedData>();
+    // Adresse officielle unique (sans www) : evite que www et sans-www soient indexes comme deux sites.
+    const baseUrl = `${seo.siteUrl}/`;
     const canonicalUrl = canonical || absoluteUrl(url.split('?')[0], baseUrl);
     const imageUrl = absoluteUrl(image, baseUrl);
     const robots = noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';

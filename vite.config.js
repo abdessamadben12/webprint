@@ -22,6 +22,9 @@ export default defineConfig({
     build: {
         rollupOptions: {
             output: {
+                // Noms d'export lisibles et stables entre chunks : evite "does not provide an export named"
+                // quand un navigateur garde en cache un ancien chunk du meme nom.
+                minifyInternalExports: false,
                 manualChunks(id) {
                     if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
                         return 'react';
@@ -63,6 +66,8 @@ export default defineConfig({
                 "http://localhost:8000",
                 "http://127.0.0.1:5173",
                 "http://127.0.0.1:8000",
+                "http://localhost:8001",
+                "http://127.0.0.1:8001",
             ],
             credentials: true,
         },

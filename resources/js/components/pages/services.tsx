@@ -45,7 +45,7 @@ export default function Services({ onQuoteWithService }: ServicesGridProps) {
         <StaggerItem>
             <p className="site-text-lead mx-auto max-w-2xl text-white/80">
                 webprint.ma accompagne les entreprises au Maroc : impression numérique et
-                grand format, habillage de véhicules et de vitrines, balisage de chantier,
+                grand format, habillage de véhicules et de vitrines, palissades de chantier,
                 vinyle, bâches et design graphique, adaptés à chaque budget.
             </p>
         </StaggerItem>

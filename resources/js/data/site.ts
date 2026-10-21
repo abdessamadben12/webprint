@@ -6,7 +6,7 @@ export const site = {
     phoneHref: 'tel:0522484425',
 
     // Numero WhatsApp au format international, sans + ni espaces.
-    whatsapp: '212668746386',
+    whatsapp: '212660419305',
     whatsappMessage: 'Bonjour webprint.ma, je souhaite obtenir des informations sur vos services d impression.',
 
     email: 'contact@webprint.ma',
