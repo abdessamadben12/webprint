@@ -143,7 +143,6 @@ export default function TarifsPage({ prices }: TarifsProps) {
                                 </li>
                             </ol>
                         </nav>
-                        <span className="text-alidade-gold text-sm font-bold tracking-[0.25em] uppercase">Prix en dirhams</span>
                         <h1 className="site-title serif-display mt-4 font-bold">Tarifs d'impression à Casablanca</h1>
                         <p className="site-text-lead mt-6 max-w-2xl text-white/80">
                             Prix de départ de votre imprimerie à Casablanca : bâche publicitaire, autocollant vinyle, vitrophanie one way, covering
