@@ -3,7 +3,6 @@ import MyQuotes from '@/components/pages/MyQuotes';
 import Navbar from '@/components/pages/navbar';
 import QuoteRequest from '@/components/pages/QuoteRequest';
 import SeoHead, { pageSeo } from '@/components/seo-head';
-import { router } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
 export default function DevisPage() {
@@ -47,7 +46,6 @@ export default function DevisPage() {
                             setPreFilledSummary('');
                             setPreFilledCost(0);
                         }}
-                        onNavigateToContact={() => router.visit('/contact')}
                         onNavigateToMyQuotes={() => setShowMyQuotes(true)}
                     />
                 )}

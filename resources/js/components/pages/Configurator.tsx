@@ -104,9 +104,9 @@ export default function Configurator({ onSendToQuote }: ConfiguratorProps) {
                         <span className="text-alidade-gold text-xs font-bold tracking-[0.2em] uppercase">Outil Intelligent Alidade</span>
                         <span className="bg-alidade-gold h-[1.5px] w-6" />
                     </div>
-                    <h2 className="text-alidade-navy font-serif text-3xl font-bold tracking-tight uppercase sm:text-4xl lg:text-5xl">
+                    <h1 className="text-alidade-navy font-serif text-3xl font-bold tracking-tight uppercase sm:text-4xl lg:text-5xl">
                         Configurateur de Menuiserie 3D
-                    </h2>
+                    </h1>
                     <p className="site-text mx-auto max-w-xl font-light text-gray-400">
                         Sélectionnez vos bois nobles, vos finitions d'art, ajustez vos dimensions au millimètre et obtenez une estimation budgétaire
                         en temps réel.

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Tighten\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -48,6 +49,11 @@ class HandleInertiaRequests extends Middleware
             ],
             'flash' => [
                 'success' => fn () => $request->session()->get('success'),
+            ],
+            // Config Ziggy pour le rendu serveur (resources/js/ssr.jsx), ou @routes n'existe pas.
+            'ziggy' => fn () => [
+                ...(new Ziggy)->toArray(),
+                'location' => $request->url(),
             ],
         ]);
     }

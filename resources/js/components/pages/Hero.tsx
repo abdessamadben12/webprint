@@ -1,5 +1,5 @@
 import { EASE, Stagger, StaggerItem } from '@/components/motion';
-import { Link, router } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import { motion, type Variants } from 'framer-motion';
 import {
     ArrowUpRight,
@@ -33,10 +33,6 @@ const slideItem: Variants = {
         },
     },
 };
-
-interface HeroSliderProps {
-    onDiscoverClick: () => void;
-}
 
 const heroImage = '/images/hero/hero_images_impremerier_casa.png';
 
@@ -74,9 +70,7 @@ const brandIcons = [
     },
 ];
 
-export default function Hero({
-    onDiscoverClick,
-}: HeroSliderProps) {
+export default function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
@@ -175,22 +169,16 @@ export default function Hero({
                                     variants={slideItem}
                                     className="pt-4"
                                 >
-                                    <motion.button
-                                        onClick={
-                                            index === 0
-                                                ? onDiscoverClick
-                                                : () =>
-                                                      router.visit(
-                                                          '/devis',
-                                                      )
-                                        }
+                                    {/* Vrai lien <a href> : suivi par Google dans le HTML rendu cote serveur. */}
+                                    <Link
+                                        href={index === 0 ? '/services' : '/devis'}
                                         className="brand-button"
                                         id={`hero-cta-btn-${index}`}
                                     >
                                         <span className="brand-button-label">{slide.cta}</span>
 
                                         <span className="brand-button-icon" aria-hidden="true"><ArrowUpRight /></span>
-                                    </motion.button>
+                                    </Link>
                                 </motion.div>
                             </motion.div>
                         </div>

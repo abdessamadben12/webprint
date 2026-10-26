@@ -59,4 +59,28 @@ class Seo
             'siteName' => $data['siteName'],
         ];
     }
+
+    /** Balises deja imprimees par app.blade.php a partir de forRequest(). */
+    private const SERVER_META = [
+        'description', 'keywords', 'robots', 'twitter:card', 'twitter:title', 'twitter:description', 'twitter:image',
+        'og:locale', 'og:type', 'og:site_name', 'og:title', 'og:description', 'og:url', 'og:image', 'og:image:type',
+    ];
+
+    /**
+     * Head rendu par le SSR (composant SeoHead) sans les balises deja imprimees par Blade :
+     * Blade reste la source unique du title, de la description, du canonical et de l'Open Graph,
+     * on ne garde du SSR que ses ajouts (JSON-LD, og:image:alt, twitter:site...).
+     */
+    public static function withoutServerTags(string $ssrHead): string
+    {
+        return preg_replace_callback('/<title\b[^>]*>.*?<\/title>|<(?:meta|link)\b[^>]*>\n?/s', function (array $match) {
+            $tag = $match[0];
+
+            if (str_starts_with($tag, '<title') || preg_match('/\brel="canonical"/', $tag)) {
+                return '';
+            }
+
+            return preg_match('/\b(?:name|property)="([^"]+)"/', $tag, $key) && in_array($key[1], self::SERVER_META, true) ? '' : $tag;
+        }, $ssrHead);
+    }
 }

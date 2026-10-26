@@ -4,6 +4,7 @@
     "scripts": {
         "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
+        "check:ssr": "node scripts/check-ssr.mjs",
         "dev": "vite",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",

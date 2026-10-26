@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Admin\ServicePriceController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Models\Article;
+use App\Models\ServicePrice;
+use App\Support\LlmsTxt;
 use App\Support\ServicePages;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,7 +42,10 @@ Route::get('services', function () {
 
 // Une page par service, a la racine du site : /impression-numerique, /habillage-vehicule, ...
 foreach (ServicePages::SLUGS as $serviceSlug) {
-    Route::get($serviceSlug, fn () => Inertia::render('services/show', ['slug' => $serviceSlug]))
+    Route::get($serviceSlug, fn () => Inertia::render('services/show', [
+        'slug' => $serviceSlug,
+        'price' => ServicePrice::publicFor($serviceSlug),
+    ]))
         ->name('service.'.$serviceSlug);
 }
 
@@ -52,6 +58,15 @@ Route::get('savoir-faire', fn () => redirect('/services', 301))->name('savoir-fa
 Route::get('savoir-faire/{service}', fn (string $service) => redirect(ServicePages::legacyTarget($service), 301))
     ->name('savoir-faire.show');
 
+// Grille des prix de depart de tous les services (memes montants que /admin/tarifs).
+Route::get('tarifs', fn () => Inertia::render('tarifs', [
+    'prices' => ServicePrice::allPublic(),
+]))->name('tarifs');
+
+// Resume du site pour les assistants IA (format llms.txt), avec les tarifs a jour.
+Route::get('llms.txt', fn () => response(LlmsTxt::render(), 200, ['Content-Type' => 'text/plain; charset=UTF-8']))
+    ->name('llms');
+
 Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 
@@ -63,6 +78,7 @@ Route::get('sitemap.xml', function () {
         ['path' => '/apropos', 'priority' => '0.7', 'changefreq' => 'monthly'],
         ['path' => '/services', 'priority' => '0.9', 'changefreq' => 'weekly'],
         ...array_map(fn (string $slug) => ['path' => '/'.$slug, 'priority' => '0.8', 'changefreq' => 'monthly'], ServicePages::SLUGS),
+        ['path' => '/tarifs', 'priority' => '0.9', 'changefreq' => 'weekly'],
         ['path' => '/articles', 'priority' => '0.8', 'changefreq' => 'daily'],
         ['path' => '/configurateur', 'priority' => '0.7', 'changefreq' => 'monthly'],
         ['path' => '/devis', 'priority' => '0.9', 'changefreq' => 'weekly'],
@@ -83,7 +99,7 @@ Route::get('sitemap.xml', function () {
     $urls = $entries->concat($articles)
         ->map(fn (array $entry) => sprintf(
             '<url><loc>%s</loc>%s<changefreq>%s</changefreq><priority>%s</priority>%s</url>',
-            e($baseUrl . $entry['path']),
+            e($baseUrl.$entry['path']),
             isset($entry['lastmod']) ? '<lastmod>'.e($entry['lastmod']).'</lastmod>' : '',
             $entry['changefreq'],
             $entry['priority'],
@@ -95,14 +111,13 @@ Route::get('sitemap.xml', function () {
 
     return response(
         '<?xml version="1.0" encoding="UTF-8"?>'
-        . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
-        . $urls
-        . '</urlset>',
+        .'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
+        .$urls
+        .'</urlset>',
         200,
         ['Content-Type' => 'application/xml; charset=UTF-8']
     );
 })->name('sitemap');
-
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [ContactController::class, 'dashboard'])->name('dashboard');
@@ -115,8 +130,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('articles/upload-image', [AdminArticleController::class, 'uploadImage'])->name('articles.upload-image');
         Route::patch('articles/{article}/toggle-status', [AdminArticleController::class, 'toggleStatus'])->name('articles.toggle-status');
         Route::resource('articles', AdminArticleController::class)->except('show');
+
+        Route::get('tarifs', [ServicePriceController::class, 'index'])->name('tarifs.index');
+        Route::put('tarifs', [ServicePriceController::class, 'update'])->name('tarifs.update');
     });
 });
 
-require __DIR__ . '/settings.php';
-require __DIR__ . '/auth.php';
+require __DIR__.'/settings.php';
+require __DIR__.'/auth.php';

@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
 
-        <!-- Google tag (gtag.js) - Google Ads -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11394382189"></script>
+        <!-- Google tag (gtag.js) - Google Analytics 4 + Google Ads : un seul chargement du script, une config par compte -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVY0X7HNK9"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
+            gtag('config', 'G-KVY0X7HNK9');
             gtag('config', 'AW-11394382189');
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +22,11 @@
         <meta name="application-name" content="webprint.ma">
         <meta name="format-detection" content="telephone=yes">
         <meta name="referrer" content="strict-origin-when-cross-origin">
+
+        {{-- Rendu serveur (SSR) lance ici, avant les balises SEO : @inertia reutilise ce resultat.
+             Si le serveur SSR ne repond pas, $__inertiaSsrResponse vaut null et la page reste rendue par le navigateur. --}}
+        @php($__inertiaSsrDispatched = true)
+        @php($__inertiaSsrResponse = app(\Inertia\Ssr\Gateway::class)->dispatch($page))
 
         @php($seo = \App\Support\Seo::forRequest(request(), $seo ?? null))
         @if ($seo)
@@ -41,7 +47,7 @@
             <meta inertia name="twitter:title" content="{{ $seo['title'] }}">
             <meta inertia name="twitter:description" content="{{ $seo['description'] }}">
             <meta inertia name="twitter:image" content="{{ $seo['image'] }}">
-        @else
+        @elseif (! $__inertiaSsrResponse)
             <title inertia>{{ config('app.name', 'webprint.ma') }}</title>
         @endif
 
@@ -57,7 +63,9 @@
         @routes
         @viteReactRefresh
         @vite('resources/js/app.tsx')
-        @inertiaHead
+        @if ($__inertiaSsrResponse)
+            {!! $seo ? \App\Support\Seo::withoutServerTags($__inertiaSsrResponse->head) : $__inertiaSsrResponse->head !!}
+        @endif
     </head>
     <body class="font-sans antialiased">
         @inertia

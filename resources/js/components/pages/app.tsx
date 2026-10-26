@@ -37,7 +37,7 @@ export default function App() {
 
             <main className="animate-in fade-in flex-grow duration-500">
                 {/* 1. Hero */}
-                <HeroSlider onDiscoverClick={() => router.visit('/services')} />
+                <HeroSlider />
 
                 {/* 2. Engagements */}
                 <EngagementSection />

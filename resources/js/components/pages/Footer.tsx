@@ -253,7 +253,8 @@ const Footer: React.FC = () => {
                         <h2 className="site-label mb-4 font-bold uppercase">Ressources</h2>
                         <ul className="flex flex-col gap-2">
                             {[
-                                ['/articles', 'Articles & conseils'],
+                                ['/tarifs', 'Tarifs'],
+                                ['/articles', 'Blog'],
                                 ['/apropos', 'À propos'],
                                 ['/devis', 'Demander un devis'],
                                 ['/contact', 'Contact'],

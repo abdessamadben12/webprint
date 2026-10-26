@@ -10,7 +10,9 @@ const applyTheme = (appearance: Appearance) => {
     document.documentElement.classList.toggle('dark', isDark);
 };
 
-const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+// Cree a la premiere utilisation : ce module est aussi charge par le rendu serveur, ou window n'existe pas.
+let systemQuery: MediaQueryList | null = null;
+const mediaQuery = () => (systemQuery ??= window.matchMedia('(prefers-color-scheme: dark)'));
 
 const handleSystemThemeChange = () => {
     const currentAppearance = localStorage.getItem('appearance') as Appearance;
@@ -23,7 +25,7 @@ export function initializeTheme() {
     applyTheme(savedAppearance);
 
     // Add the event listener for system theme changes...
-    mediaQuery.addEventListener('change', handleSystemThemeChange);
+    mediaQuery().addEventListener('change', handleSystemThemeChange);
 }
 
 export function useAppearance() {
@@ -39,7 +41,7 @@ export function useAppearance() {
         const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
         updateAppearance(savedAppearance || 'system');
 
-        return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
+        return () => mediaQuery().removeEventListener('change', handleSystemThemeChange);
     }, []);
 
     return { appearance, updateAppearance };

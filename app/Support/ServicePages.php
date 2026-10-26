@@ -28,6 +28,19 @@ class ServicePages
         'impression-vitrine',
     ];
 
+    /** Noms affiches des services (memes titres que resources/js/data/services.ts), utilises par /llms.txt. */
+    public const TITLES = [
+        'impression-numerique' => 'Impression numérique',
+        'impression-grand-format' => 'Impression grand format',
+        'industrie-publicitaire' => 'Industrie publicitaire',
+        'habillage-vehicule' => 'Habillage de véhicule',
+        'balisage-chantier' => 'Palissades de chantier',
+        'impression-vinyle' => 'Impression vinyle',
+        'design-graphique' => 'Design graphique',
+        'impression-baches' => 'Impression de bâches',
+        'impression-vitrine' => 'Habillage de vitrine',
+    ];
+
     /** Anciennes URLs /services/{slug} redirigees en 301 pour conserver le referencement. */
     public const LEGACY_REDIRECTS = [
         'impression-offset' => 'impression-numerique',

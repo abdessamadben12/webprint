@@ -6,6 +6,7 @@
 import { Reveal, Stagger, StaggerItem } from '@/components/motion';
 import { services } from '@/data/services';
 import { quoteBannerImage } from '@/image';
+import { Link } from '@inertiajs/react';
 import {
     AlignLeft,
     ArrowRight,
@@ -29,7 +30,6 @@ interface QuoteRequestProps {
     preFilledSummary: string;
     preFilledCost: number;
     onClearPreFill: () => void;
-    onNavigateToContact: () => void;
     onNavigateToMyQuotes: () => void;
 }
 
@@ -37,7 +37,6 @@ export default function QuoteRequest({
     preFilledSummary,
     preFilledCost,
     onClearPreFill,
-    onNavigateToContact,
     onNavigateToMyQuotes,
 }: QuoteRequestProps) {
     const [fullName, setFullName] = useState('');
@@ -153,10 +152,10 @@ export default function QuoteRequest({
                                     Étude Personnalisée
                                 </span>
                             </div>
-                            <h2 className="site-title font-bold">
+                            <h1 className="site-title font-bold">
                                 Demandez Votre <br />
                                 <span className="text-alidade-gold font-serif">Devis Gratuit</span>
-                            </h2>
+                            </h1>
                             <p className="site-text max-w-lg text-gray-300">
                                 Décrivez votre besoin d'impression, de bâches, d'habillage de véhicule ou de vitrine. Notre équipe vous
                                 prépare un estimatif clair sous 48 heures.
@@ -468,14 +467,14 @@ export default function QuoteRequest({
                                 Notre équipe vous guide sur le papier, le format, le marquage, la finition et la préparation de vos fichiers.
                             </p>
                         </div>
-                        <button
-                            onClick={onNavigateToContact}
+                        <Link
+                            href="/contact"
                             className="hover:bg-alidade-gold text-alidade-dark flex shrink-0 cursor-pointer items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs font-bold tracking-widest uppercase shadow-md transition-all duration-300 hover:text-white"
                             id="devis-contact-btn"
                         >
                             <span>NOUS CONTACTER</span>
                             <ArrowRight size={13} />
-                        </button>
+                        </Link>
                     </Reveal>
                 </div>
             </section>

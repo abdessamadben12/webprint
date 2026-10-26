@@ -9,11 +9,20 @@ import { Link, usePage } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, ChevronRight, Phone, Sparkles } from 'lucide-react';
 
-interface ServiceShowProps {
-    slug: string;
+/** Tarif « à partir de » saisi dans l'admin (/admin/tarifs) ; null = sur devis. */
+interface ServicePrice {
+    amount: number;
+    unit: string;
+    basis: string;
+    label: string;
 }
 
-export default function ServiceShowPage({ slug }: ServiceShowProps) {
+interface ServiceShowProps {
+    slug: string;
+    price: ServicePrice | null;
+}
+
+export default function ServiceShowPage({ slug, price }: ServiceShowProps) {
     const service = getServiceBySlug(slug);
     const { appUrl } = usePage<SharedData>().props;
     const baseUrl = appUrl.endsWith('/') ? appUrl : `${appUrl}/`;
@@ -74,6 +83,42 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                             })),
                         },
                     },
+                    ...(price
+                        ? [
+                              {
+                                  '@type': 'Product',
+                                  '@id': `${pageUrl}#product`,
+                                  name: `${service.title} à Casablanca`,
+                                  description: service.metaDescription,
+                                  image: absoluteUrl(service.imageUrl, baseUrl),
+                                  brand: { '@type': 'Brand', name: 'webprint.ma' },
+                                  offers: {
+                                      '@type': 'Offer',
+                                      url: pageUrl,
+                                      price: price.amount.toFixed(2),
+                                      priceCurrency: 'MAD',
+                                      availability: 'https://schema.org/InStock',
+                                      itemCondition: 'https://schema.org/NewCondition',
+                                      seller: { '@id': `${absoluteUrl('/', baseUrl)}#business` },
+                                      ...(price.unit
+                                          ? {
+                                                priceSpecification: {
+                                                    '@type': 'UnitPriceSpecification',
+                                                    price: price.amount.toFixed(2),
+                                                    priceCurrency: 'MAD',
+                                                    referenceQuantity: {
+                                                        '@type': 'QuantitativeValue',
+                                                        value: 1,
+                                                        unitText: price.unit,
+                                                        ...(['m²', 'm2'].includes(price.unit) ? { unitCode: 'MTK' } : {}),
+                                                    },
+                                                },
+                                            }
+                                          : {}),
+                                  },
+                              },
+                          ]
+                        : []),
                     {
                         '@type': 'BreadcrumbList',
                         itemListElement: [
@@ -181,6 +226,25 @@ export default function ServiceShowPage({ slug }: ServiceShowProps) {
                                     {paragraph}
                                 </p>
                             ))}
+                        </div>
+
+                        {/* Tarif indicatif, modifiable dans l'admin (/admin/tarifs). */}
+                        <div className="border-brand-blue/15 rounded-2xl border bg-[#F9F7F3] p-6 sm:p-8">
+                            <span className="text-alidade-gold-dark text-sm font-bold tracking-[0.3em] uppercase">Votre projet, votre budget</span>
+                            {price && <p className="text-alidade-navy mt-3 text-2xl font-bold sm:text-3xl">{price.label}</p>}
+                            <p className="site-text text-alidade-text mt-2">
+                                {price?.basis || 'Le tarif dépend du format, de la quantité et des finitions.'}
+                            </p>
+                            <p className="site-text-small mt-3 text-gray-500">
+                                Tarif indicatif. Le prix final dépend du format, de la quantité, du support et des finitions choisies. Tous les
+                                détails sont confirmés dans votre devis.
+                            </p>
+                            <Link href={quoteHref} className="brand-button mt-6">
+                                <span className="brand-button-label">Demander mon devis</span>
+                                <span className="brand-button-icon" aria-hidden="true">
+                                    <ArrowUpRight />
+                                </span>
+                            </Link>
                         </div>
                     </Reveal>
                     <Reveal className="lg:col-span-2" delay={0.15}>
